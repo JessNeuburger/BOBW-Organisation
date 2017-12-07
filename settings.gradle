@@ -1,0 +1,23 @@
+
+def includeTraining(name) {
+    include name
+    project(":"+name).projectDir = file("training/"+name)
+    project(":"+name).name = "training_"+project(":"+name).name
+}
+
+def includeLibrary(name) {
+    include name
+    project(":"+name).projectDir = file("lib/"+name)
+    project(":"+name).name = "lib_"+project(":"+name).name
+}
+
+rootProject.name = 'BOBW-Organisation'
+
+
+
+//Training Projects
+//includeTraining 'Gradle_Demo'
+
+includeLibrary 'examplelib'
+
+includeTraining 'exampleTraining'

@@ -21,3 +21,4 @@ rootProject.name = 'BOBW-Organisation'
 includeLibrary 'examplelib'
 
 includeTraining 'exampleTraining'
+includeTraining 'javafx_mayrhofer'

@@ -22,3 +22,5 @@ includeLibrary 'examplelib'
 
 includeTraining 'exampleTraining'
 includeTraining 'javafx_mayrhofer'
+includeTraining 'javafx_draggable_demo'
+includeTraining 'javafx_cubiccurve_demo'

@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package OrganisationalStructureLibrary;
+package at.htl.florianschwarcz.organisationalstructurelib;
 
 import java.util.Date;
 
 /**
  *
- * @author flori
+ * @author Florian Schwarcz
  */
 public class Person {
     private String lastName;

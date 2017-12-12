@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package OrganisationalStructureLibrary;
+package at.htl.florianschwarcz.organisationalstructurelib;
 
 import java.util.LinkedList;
 import java.util.List;
 
 /**
  *
- * @author flori
+ * @author Florian Schwarcz
  */
 public class Position {
     private Person person;
@@ -44,21 +44,33 @@ public class Position {
      * Returns all subordinates and subordinates from subordinates.
      * @return List of all subordinates
      */
-    public List<Position> getAllSubordinates(){
+    public List<Position> getAllSubordinatePositions(){
         if(subordinates == null){
             return new LinkedList<Position>();
         }
-        List<Position> allSubordinates = new LinkedList<>();
+        List<Position> allSubordinatePositions = new LinkedList<>();
         for(Position subordinate : subordinates){
-            addSubortinates.add(subordinate);
-            allSubordinates.addAll(subordinate.getAllSubordinates());
+            allSubordinatePositions.add(subordinate);
+            allSubordinatePositions.addAll(subordinate.getAllSubordinatePositions());
         }
-        return allSubordinates;
+        return allSubordinatePositions;
+    }
+
+    public List<Person> getAllSubordinatePersons(){
+        if(subordinates == null){
+            return new LinkedList<Person>();
+        }
+        List<Person> allSubordinatePersons = new LinkedList<>();
+        for(Position subordinate : subordinates){
+            allSubordinatePersons.add(subordinate.getPerson());
+            allSubordinatePersons.addAll(subordinate.getAllSubordinatePersons());
+        }
+        return allSubordinatePersons;
     }
 
     /**
      * Adds a subordinate to the list.
-     * @param newSubordinate
+     * @param subordinate
      */
     public void addSubortinate(Position subordinate){
         if(subordinates == null){

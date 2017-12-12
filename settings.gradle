@@ -19,5 +19,5 @@ rootProject.name = 'BOBW-Organisation'
 //includeTraining 'Gradle_Demo'
 
 includeLibrary 'examplelib'
-
+includeLibrary 'OrganisationalStructurelib'
 includeTraining 'exampleTraining'

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BOBW-Organisation.iml" filepath="$PROJECT_DIR$/BOBW-Organisation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/BOBW-Organisation_main.iml" filepath="$PROJECT_DIR$/.idea/modules/BOBW-Organisation_main.iml" group="BOBW-Organisation" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/BOBW-Organisation_test.iml" filepath="$PROJECT_DIR$/.idea/modules/BOBW-Organisation_test.iml" group="BOBW-Organisation" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lib/OrganisationalStructurelib/lib_OrganisationalStructurelib.iml" filepath="$PROJECT_DIR$/.idea/modules/lib/OrganisationalStructurelib/lib_OrganisationalStructurelib.iml" group="lib_OrganisationalStructurelib" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lib/OrganisationalStructurelib/lib_OrganisationalStructurelib_main.iml" filepath="$PROJECT_DIR$/.idea/modules/lib/OrganisationalStructurelib/lib_OrganisationalStructurelib_main.iml" group="lib_OrganisationalStructurelib" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lib/OrganisationalStructurelib/lib_OrganisationalStructurelib_test.iml" filepath="$PROJECT_DIR$/.idea/modules/lib/OrganisationalStructurelib/lib_OrganisationalStructurelib_test.iml" group="lib_OrganisationalStructurelib" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lib/examplelib/lib_examplelib.iml" filepath="$PROJECT_DIR$/.idea/modules/lib/examplelib/lib_examplelib.iml" group="lib_examplelib" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lib/examplelib/lib_examplelib_main.iml" filepath="$PROJECT_DIR$/.idea/modules/lib/examplelib/lib_examplelib_main.iml" group="lib_examplelib" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lib/examplelib/lib_examplelib_test.iml" filepath="$PROJECT_DIR$/.idea/modules/lib/examplelib/lib_examplelib_test.iml" group="lib_examplelib" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/training/exampleTraining/training_exampleTraining.iml" filepath="$PROJECT_DIR$/.idea/modules/training/exampleTraining/training_exampleTraining.iml" group="training_exampleTraining" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/training/exampleTraining/training_exampleTraining_main.iml" filepath="$PROJECT_DIR$/.idea/modules/training/exampleTraining/training_exampleTraining_main.iml" group="training_exampleTraining" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/training/exampleTraining/training_exampleTraining_test.iml" filepath="$PROJECT_DIR$/.idea/modules/training/exampleTraining/training_exampleTraining_test.iml" group="training_exampleTraining" />
+    </modules>
+  </component>
+</project>

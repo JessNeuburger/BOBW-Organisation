@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package OrganisationalStructureLibrary;
+package at.htl.florianschwarcz.organisationalstructurelib;
 
 import java.util.HashMap;
 
 /**
  *
- * @author flori
+ * @author Florian Schwarcz
  */
 public class Profile {
     private HashMap<String, Integer> attributes;
@@ -70,5 +70,22 @@ public class Profile {
             return -1;
         }
         return value;
+    }
+
+    /**
+     * Compares two profiles using the difference of
+     * all attributes.
+     * @param p1
+     * @param p2
+     * @return
+     */
+    public static int compareProfiles(Profile p1, Profile p2){
+        int points = 0;
+        for(String key : p1.getAttributes().keySet()){
+            if(p2.getValue(key) != -1){
+                points += p1.getValue(key) - p2.getValue(key);
+            }
+        }
+        return points;
     }
 }

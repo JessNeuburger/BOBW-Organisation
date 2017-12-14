@@ -20,4 +20,5 @@ rootProject.name = 'BOBW-Organisation'
 
 includeLibrary 'examplelib'
 includeLibrary 'OrganisationalStructurelib'
+includeLibrary 'WorkflowManagementlib'
 includeTraining 'exampleTraining'

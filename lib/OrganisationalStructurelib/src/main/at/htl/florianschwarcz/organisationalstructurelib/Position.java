@@ -46,7 +46,7 @@ public class Position {
      */
     public List<Position> getAllSubordinatePositions(){
         if(subordinates == null){
-            return new LinkedList<Position>();
+            return new LinkedList<>();
         }
         List<Position> allSubordinatePositions = new LinkedList<>();
         for(Position subordinate : subordinates){
@@ -58,11 +58,13 @@ public class Position {
 
     public List<Person> getAllSubordinatePersons(){
         if(subordinates == null){
-            return new LinkedList<Person>();
+            return new LinkedList<>();
         }
         List<Person> allSubordinatePersons = new LinkedList<>();
         for(Position subordinate : subordinates){
-            allSubordinatePersons.add(subordinate.getPerson());
+            if(subordinate.getPerson() != null){
+                allSubordinatePersons.add(subordinate.getPerson());
+            }
             allSubordinatePersons.addAll(subordinate.getAllSubordinatePersons());
         }
         return allSubordinatePersons;

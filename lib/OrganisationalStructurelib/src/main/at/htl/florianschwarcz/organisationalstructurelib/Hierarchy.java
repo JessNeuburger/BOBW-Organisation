@@ -32,7 +32,7 @@ public class Hierarchy {
      */
     public List<Position> positionList(){
         if(head == null){
-            return null;
+            return new LinkedList<>();
         }
         List<Position> positionList = new LinkedList<>();
         positionList.add(head);
@@ -46,10 +46,12 @@ public class Hierarchy {
      */
     public List<Person> personList(){
         if(head == null){
-            return null;
+            return new LinkedList<>();
         }
         List<Person> personList = new LinkedList<>();
-        personList.add(head.getPerson());
+        if(head.getPerson() != null) {
+            personList.add(head.getPerson());
+        }
         personList.addAll(head.getAllSubordinatePersons());
         return personList;
     }
@@ -64,7 +66,8 @@ public class Hierarchy {
         Person bestPerson = null;
         int bestPoints = 0;
         for(Person person : personList()){
-            if(bestPerson == null || Profile.compareProfiles(profile, person.getProfile()) > bestPoints) {
+            if(bestPerson == null || Profile.compareProfiles(person.getProfile(), profile) > bestPoints) {
+                bestPoints = Profile.compareProfiles(person.getProfile(), profile);
                 bestPerson = person;
             }
         }
@@ -76,15 +79,16 @@ public class Hierarchy {
      * the given one best.
      * @param profile
      * @return
-     *//*
+     */
     public Job getBestJob(Profile profile){
         Job bestJob = null;
         int bestPoints = 0;
-        for(Job Job : personList()){
-            if(bestJob == null || Profile.compareProfiles(profile, bestJob.getProfile()) > bestPoints) {
-                bestJob = person;
+        for(Position position : positionList()){
+            if(bestJob == null || Profile.compareProfiles(profile, position.getJob().getProfile()) > bestPoints) {
+                bestPoints = Profile.compareProfiles(position.getJob().getProfile(), profile);
+                bestJob = position.getJob();
             }
         }
-        return bestPerson;*/
+        return bestJob;
     }
 }

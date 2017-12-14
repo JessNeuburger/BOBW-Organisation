@@ -21,10 +21,10 @@ public class Person {
     private String city;
     private String zipCode;
     private String email;
-    private int socialSecurityNumber;
+    private String socialSecurityNumber;
     private Profile profile;
 
-    public Person(String lastName, String firstName, Date birthDate, String birthCity, String street, int number, String city, String zipCode, String email, int socialSecurityNumber, Profile profile) {
+    public Person(String lastName, String firstName, Date birthDate, String birthCity, String street, int number, String city, String zipCode, String email, String socialSecurityNumber, Profile profile) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.birthDate = birthDate;
@@ -110,11 +110,11 @@ public class Person {
         this.email = email;
     }
 
-    public int getSocialSecurityNumber() {
+    public String getSocialSecurityNumber() {
         return socialSecurityNumber;
     }
 
-    public void setSocialSecurityNumber(int socialSecurityNumber) {
+    public void setSocialSecurityNumber(String socialSecurityNumber) {
         this.socialSecurityNumber = socialSecurityNumber;
     }
 

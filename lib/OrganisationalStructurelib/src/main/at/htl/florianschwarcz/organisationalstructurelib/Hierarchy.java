@@ -64,10 +64,10 @@ public class Hierarchy {
      */
     public Person getBestPerson(Profile profile){
         Person bestPerson = null;
-        int bestPoints = 0;
+        int bestScore = 0;
         for(Person person : personList()){
-            if(bestPerson == null || Profile.compareProfiles(person.getProfile(), profile) > bestPoints) {
-                bestPoints = Profile.compareProfiles(person.getProfile(), profile);
+            if(bestPerson == null || Profile.compareProfiles(person.getProfile(), profile) > bestScore) {
+                bestScore = Profile.compareProfiles(person.getProfile(), profile);
                 bestPerson = person;
             }
         }
@@ -82,10 +82,12 @@ public class Hierarchy {
      */
     public Job getBestJob(Profile profile){
         Job bestJob = null;
-        int bestPoints = 0;
+        int bestScore = 0;
         for(Position position : positionList()){
-            if(bestJob == null || Profile.compareProfiles(profile, position.getJob().getProfile()) > bestPoints) {
-                bestPoints = Profile.compareProfiles(position.getJob().getProfile(), profile);
+            System.out.println("went in");
+            System.out.println(Profile.compareProfiles(profile, position.getJob().getProfile()));
+            if(bestJob == null || Profile.compareProfiles(profile, position.getJob().getProfile()) > bestScore) {
+                bestScore = Profile.compareProfiles(profile, position.getJob().getProfile());
                 bestJob = position.getJob();
             }
         }

@@ -80,12 +80,12 @@ public class Profile {
      * @return
      */
     public static int compareProfiles(Profile p1, Profile p2){
-        int points = 0;
+        int score = 0;
         for(String key : p1.getAttributes().keySet()){
             if(p2.getValue(key) != -1){
-                points += p1.getValue(key) - p2.getValue(key);
+                score += p1.getValue(key) - p2.getValue(key);
             }
         }
-        return points;
+        return score;
     }
 }

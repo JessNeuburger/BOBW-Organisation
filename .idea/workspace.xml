@@ -2,22 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7f2c52d-0036-4815-bfa4-53a420af42bf" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/test/at/htl/florianschwarcz/organisationalstructurelibtests/HierarchyTests.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/lib/WorkflowManagementlib/src/main/at.htl.florianschwarcz.workflowmanagementlib/Activity.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/lib/WorkflowManagementlib/src/main/at.htl.florianschwarcz.workflowmanagementlib/Element.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/lib/WorkflowManagementlib/src/main/at.htl.florianschwarcz.workflowmanagementlib/End.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/lib/WorkflowManagementlib/src/main/at.htl.florianschwarcz.workflowmanagementlib/Fork.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/lib/WorkflowManagementlib/src/main/at.htl.florianschwarcz.workflowmanagementlib/Join.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/lib/WorkflowManagementlib/src/main/at.htl.florianschwarcz.workflowmanagementlib/Merge.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/lib/WorkflowManagementlib/src/main/at.htl.florianschwarcz.workflowmanagementlib/Start.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/lib/WorkflowManagementlib/src/main/at.htl.florianschwarcz.workflowmanagementlib/Workflow.java" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/OrganisationalStructureLibrary/nbproject/private/private.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/OrganisationalStructureLibrary/nbproject/private/private.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Hierarchy.java" afterPath="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Hierarchy.java" />
-      <change beforePath="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Person.java" afterPath="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Person.java" />
-      <change beforePath="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Position.java" afterPath="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Position.java" />
-      <change beforePath="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/test/at/htl/florianschwarcz/organisationalstructuretests/HierarchyTests.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
+      <change beforePath="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Profile.java" afterPath="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Profile.java" />
+      <change beforePath="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/test/at/htl/florianschwarcz/organisationalstructurelibtests/HierarchyTests.java" afterPath="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/test/at/htl/florianschwarcz/organisationalstructurelibtests/HierarchyTests.java" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -40,6 +31,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/BOBW_Organisation$BOBW_Organisation_lib_OrganisationalStructurelib__test_.coverage" NAME="BOBW-Organisation:lib:OrganisationalStructurelib [test] Coverage Results" MODIFIED="1513277707564" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -92,8 +86,8 @@
       <file leaf-file-name="HierarchyTests.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/test/at/htl/florianschwarcz/organisationalstructurelibtests/HierarchyTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="120" column="59" lean-forward="false" selection-start-line="120" selection-start-column="59" selection-end-line="120" selection-end-column="59" />
+            <state relative-caret-position="217">
+              <caret line="136" column="47" lean-forward="false" selection-start-line="136" selection-start-column="47" selection-end-line="136" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -101,11 +95,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Job.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Job.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Hierarchy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Hierarchy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="55" column="25" lean-forward="false" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
+            <state relative-caret-position="291">
+              <caret line="84" column="26" lean-forward="false" selection-start-line="84" selection-start-column="26" selection-end-line="84" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -116,7 +120,7 @@
       <file leaf-file-name="Person.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Person.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
+            <state relative-caret-position="1054">
               <caret line="93" column="15" lean-forward="false" selection-start-line="93" selection-start-column="15" selection-end-line="93" selection-end-column="15" />
               <folding>
                 <element signature="method#setSocialSecurityNumber#0;class#Person#0" expanded="false" />
@@ -128,9 +132,11 @@
       <file leaf-file-name="Position.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Position.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
-              <folding />
+            <state relative-caret-position="274">
+              <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+              <folding>
+                <element signature="e#2322#2323#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -138,8 +144,8 @@
       <file leaf-file-name="Profile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Profile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="85" column="62" lean-forward="false" selection-start-line="85" selection-start-column="62" selection-end-line="85" selection-end-column="62" />
+            <state relative-caret-position="51">
+              <caret line="30" column="24" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -154,13 +160,23 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>points</find>
+      <find>headSubPersonProfile</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>score</replace>
+      <replace>headSubJobProfile</replace>
+    </replaceStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
       <map>
-        <entry key="$PROJECT_DIR$" value="C:\Users\flori\.gradle\wrapper\dists\gradle-4.0-bin\3p92xsbhik5vmig8i90n16yxc\gradle-4.0" />
+        <entry key="$PROJECT_DIR$" value="C:\Users\Admin\.gradle\wrapper\dists\gradle-4.0-bin\3p92xsbhik5vmig8i90n16yxc\gradle-4.0" />
       </map>
     </option>
     <option name="myGradleVersions">
@@ -935,7 +951,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="10591622560802" />
+        <entry key="$PROJECT_DIR$" value="10590628582762" />
         <entry key="$PROJECT_DIR$/settings.gradle" value="1719895259" />
       </map>
     </option>
@@ -1077,7 +1093,6 @@
         <option value="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/OrganisationalStructurejava/Position.java" />
         <option value="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/OrganisationalStructurejava/Hierarchy.java" />
         <option value="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/test/HierarchyTests.java" />
-        <option value="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Profile.java" />
         <option value="$PROJECT_DIR$/lib/WorkflowManagementlib/src/main/at.htl.florianschwarcz.workflowmanagementlib/ExampleJava.java" />
         <option value="$PROJECT_DIR$/settings.gradle" />
         <option value="$PROJECT_DIR$/lib/WorkflowManagementlib/src/main/at.htl.florianschwarcz.workflowmanagementlib/Element.java" />
@@ -1095,6 +1110,7 @@
         <option value="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Person.java" />
         <option value="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Position.java" />
         <option value="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/test/at/htl/florianschwarcz/organisationalstructuretests/HierarchyTests.java" />
+        <option value="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Profile.java" />
         <option value="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Hierarchy.java" />
         <option value="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/test/at/htl/florianschwarcz/organisationalstructurelibtests/HierarchyTests.java" />
       </list>
@@ -1180,19 +1196,13 @@
               <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="organisationalstructurelibtests" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="BOBW-Organisation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BOBW-Organisation" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="WorkflowManagementlib" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -1362,39 +1372,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 16h 30m 00s.xml">
+    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 19h 55m 35s.xml">
       <configuration name="BOBW-Organisation:lib:OrganisationalStructurelib [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 16h 33m 13s.xml">
+    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 19h 56m 40s.xml">
       <configuration name="BOBW-Organisation:lib:OrganisationalStructurelib [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 16h 34m 38s.xml">
+    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 19h 56m 48s.xml">
       <configuration name="BOBW-Organisation:lib:OrganisationalStructurelib [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 16h 37m 34s.xml">
+    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 19h 58m 46s.xml">
       <configuration name="BOBW-Organisation:lib:OrganisationalStructurelib [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 16h 40m 51s.xml">
+    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 19h 59m 15s.xml">
       <configuration name="BOBW-Organisation:lib:OrganisationalStructurelib [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 16h 57m 20s.xml">
+    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 19h 59m 36s.xml">
       <configuration name="BOBW-Organisation:lib:OrganisationalStructurelib [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 16h 58m 49s.xml">
+    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 19h 59m 44s.xml">
       <configuration name="BOBW-Organisation:lib:OrganisationalStructurelib [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 16h 59m 55s.xml">
+    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 20h 01m 46s.xml">
       <configuration name="BOBW-Organisation:lib:OrganisationalStructurelib [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 17h 00m 37s.xml">
+    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 20h 01m 55s.xml">
       <configuration name="BOBW-Organisation:lib:OrganisationalStructurelib [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 17h 01m 06s.xml">
+    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 20h 02m 50s.xml">
       <configuration name="BOBW-Organisation:lib:OrganisationalStructurelib [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1403,24 +1413,25 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901832" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2728249" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16004297" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27558637" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15991472" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39958376" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1429,7 +1440,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -1455,15 +1468,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#238#239#0" expanded="false" />
-            <element signature="e#273#274#0" expanded="false" />
-            <element signature="e#309#310#0" expanded="false" />
-            <element signature="e#341#342#0" expanded="false" />
-            <element signature="e#391#392#0" expanded="false" />
-            <element signature="e#433#434#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1493,7 +1497,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="12" column="27" lean-forward="false" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-          <folding />
+          <folding>
+            <element signature="e#2322#2323#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1537,9 +1543,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="10" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1579,7 +1582,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="12" column="27" lean-forward="false" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-          <folding />
+          <folding>
+            <element signature="e#2322#2323#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1623,9 +1628,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="10" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1665,7 +1667,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="12" column="27" lean-forward="false" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-          <folding />
+          <folding>
+            <element signature="e#2322#2323#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1708,7 +1712,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1727,21 +1730,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Job.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/WorkflowManagementlib/src/main/at.htl.florianschwarcz.workflowmanagementlib/Fork.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
           <caret line="21" column="40" lean-forward="false" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1749,12 +1741,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding>
-            <element signature="e#138#139#0" expanded="false" />
-            <element signature="e#165#166#0" expanded="false" />
-            <element signature="e#206#207#0" expanded="false" />
-            <element signature="e#238#239#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1762,11 +1748,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-          <folding>
-            <element signature="e#159#160#0" expanded="false" />
-            <element signature="e#200#201#0" expanded="false" />
-            <element signature="e#232#233#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1774,11 +1755,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="5" column="30" lean-forward="false" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-          <folding>
-            <element signature="e#166#167#0" expanded="false" />
-            <element signature="e#207#208#0" expanded="false" />
-            <element signature="e#239#240#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1786,11 +1762,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-          <folding>
-            <element signature="e#161#162#0" expanded="false" />
-            <element signature="e#202#203#0" expanded="false" />
-            <element signature="e#236#237#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1798,7 +1769,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1806,15 +1776,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#238#239#0" expanded="false" />
-            <element signature="e#273#274#0" expanded="false" />
-            <element signature="e#309#310#0" expanded="false" />
-            <element signature="e#341#342#0" expanded="false" />
-            <element signature="e#391#392#0" expanded="false" />
-            <element signature="e#433#434#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1822,23 +1783,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-          <folding>
-            <element signature="e#159#160#0" expanded="false" />
-            <element signature="e#191#192#0" expanded="false" />
-            <element signature="e#250#251#0" expanded="false" />
-            <element signature="e#291#292#0" expanded="false" />
-            <element signature="e#323#324#0" expanded="false" />
-            <element signature="e#361#362#0" expanded="false" />
-            <element signature="e#395#396#0" expanded="false" />
-            <element signature="e#449#450#0" expanded="false" />
-            <element signature="e#495#496#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Person.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
+        <state relative-caret-position="1054">
           <caret line="93" column="15" lean-forward="false" selection-start-line="93" selection-start-column="15" selection-end-line="93" selection-end-column="15" />
           <folding>
             <element signature="method#setSocialSecurityNumber#0;class#Person#0" expanded="false" />
@@ -1850,7 +1800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1858,7 +1807,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="10" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1866,30 +1814,39 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Job.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Position.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
-          <folding />
+        <state relative-caret-position="274">
+          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+          <folding>
+            <element signature="e#2322#2323#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Profile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="85" column="62" lean-forward="false" selection-start-line="85" selection-start-column="62" selection-end-line="85" selection-end-column="62" />
+        <state relative-caret-position="51">
+          <caret line="30" column="24" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Hierarchy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="55" column="25" lean-forward="false" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
+        <state relative-caret-position="291">
+          <caret line="84" column="26" lean-forward="false" selection-start-line="84" selection-start-column="26" selection-end-line="84" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1898,8 +1855,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/test/at/htl/florianschwarcz/organisationalstructurelibtests/HierarchyTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="120" column="59" lean-forward="false" selection-start-line="120" selection-start-column="59" selection-end-line="120" selection-end-column="59" />
+        <state relative-caret-position="217">
+          <caret line="136" column="47" lean-forward="false" selection-start-line="136" selection-start-column="47" selection-end-line="136" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

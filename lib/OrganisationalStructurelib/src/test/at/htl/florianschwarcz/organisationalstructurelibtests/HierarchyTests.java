@@ -2,10 +2,7 @@ package at.htl.florianschwarcz.organisationalstructurelibtests;
 
 import static org.junit.Assert.*;
 
-import at.htl.florianschwarcz.organisationalstructurelib.Hierarchy;
-import at.htl.florianschwarcz.organisationalstructurelib.Person;
-import at.htl.florianschwarcz.organisationalstructurelib.Position;
-import at.htl.florianschwarcz.organisationalstructurelib.Profile;
+import at.htl.florianschwarcz.organisationalstructurelib.*;
 import org.junit.Test;
 
 import java.util.Date;
@@ -114,15 +111,45 @@ public class HierarchyTests {
         head.setPerson(headPerson);
         assertEquals("Head should be best person", headPerson, hierarchy.getBestPerson(profile));
         Position headSub = new Position();
-        Profile headSubPersonProfile = new Profile();
-        headSubPersonProfile.addAttribute("Sozial", 5);
-        headSubPersonProfile.addAttribute("Handwerk", 5);
-        headSubPersonProfile.addAttribute("Programmieren", 10);
-        headSubPersonProfile.addAttribute("Datenbanken", 10);
-        Person headSubPerson = new Person("Test1","Test", new Date(), "Test", "Test", 1, "Test", "Test", "Test", "Test", headSubPersonProfile);
-        headSub.setPerson(headPerson);
+        Profile headSubJobProfile = new Profile();
+        headSubJobProfile.addAttribute("Sozial", 5);
+        headSubJobProfile.addAttribute("Handwerk", 5);
+        headSubJobProfile.addAttribute("Programmieren", 10);
+        headSubJobProfile.addAttribute("Datenbanken", 10);
+        Person headSubPerson = new Person("Test2","Test", new Date(), "Test", "Test", 1, "Test", "Test", "Test", "Test", headSubJobProfile);
+        headSub.setPerson(headSubPerson);
         head.addSubortinate(headSub);
         assertEquals("Head's sub should be best person", headSubPerson, hierarchy.getBestPerson(profile));
+    }
 
+    @Test
+    public void T07_GetBestJob(){
+        Hierarchy hierarchy = new Hierarchy();
+        Profile profile = new Profile();
+        profile.addAttribute("Sozial", 7);
+        profile.addAttribute("Handwerk", 5);
+        profile.addAttribute("Programmieren", 8);
+        profile.addAttribute("Datenbanken", 8);
+        assertNull("Best Job should be null", hierarchy.getBestJob(profile));
+        Position head = new Position();
+        Profile headJobProfile = new Profile();
+        hierarchy.setHead(head);
+        headJobProfile.addAttribute("Sozial", 5);
+        headJobProfile.addAttribute("Handwerk", 5);
+        headJobProfile.addAttribute("Programmieren", 10);
+        headJobProfile.addAttribute("Datenbanken", 10);
+        Job headJob = new Job("Test1", headJobProfile);
+        head.setJob(headJob);
+        assertEquals("Head should be best job", headJob, hierarchy.getBestJob(profile));
+        Position headSub = new Position();
+        Profile headSubJobProfile = new Profile();
+        headSubJobProfile.addAttribute("Sozial", 6);
+        headSubJobProfile.addAttribute("Handwerk", 3);
+        headSubJobProfile.addAttribute("Programmieren", 8);
+        headSubJobProfile.addAttribute("Datenbanken", 7);
+        Job headSubJob = new Job("Test2", headSubJobProfile);
+        headSub.setJob(headSubJob);
+        head.addSubortinate(headSub);
+        assertEquals("Head's sub should be best job", headSubJob, hierarchy.getBestJob(profile));
     }
 }

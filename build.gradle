@@ -12,7 +12,9 @@ allprojects{
 
     sourceSets {
         main.java.srcDirs = ['src/main']
+        main.resources.srcDirs = ['src/main/resources']
         test.java.srcDirs = ['src/test']
+        test.resources.srcDirs = ['src/test/resources']
     }
 }
 

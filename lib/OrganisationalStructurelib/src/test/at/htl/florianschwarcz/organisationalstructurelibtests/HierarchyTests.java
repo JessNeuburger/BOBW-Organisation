@@ -11,7 +11,7 @@ import java.util.List;
 
 public class HierarchyTests {
     @Test
-    public void T01_SetHeadAndGetHead(){
+    public void T01_SetterAndGetter(){
         Hierarchy hierarchy = new Hierarchy();
         assertNull("Head should be null", hierarchy.getHead());
         Position head = new Position();
@@ -37,15 +37,15 @@ public class HierarchyTests {
         Position headSub = new Position();
         Position headSub2 = new Position();
         hierarchy.setHead(head);
-        head.addSubortinate(headSub);
-        head.addSubortinate(headSub2);
+        head.addSubordinate(headSub);
+        head.addSubordinate(headSub2);
         List<Position> expected = new LinkedList<>();
         expected.add(head);
         expected.add(headSub);
         expected.add(headSub2);
         assertEquals("List should be like expected", expected, hierarchy.positionList());
         Position headSubSub = new Position();
-        headSub.addSubortinate(headSubSub);
+        headSub.addSubordinate(headSubSub);
         expected.add(2, headSubSub);
         assertEquals("Expanded List should be like expected", expected, hierarchy.positionList());
     }
@@ -76,8 +76,8 @@ public class HierarchyTests {
         Person headSub2Person = new Person("Test3","Test", new Date(), "Test", "Test", 1, "Test", "Test", "Test", "Test", new Profile());
         headSub2.setPerson(headSub2Person);
         hierarchy.setHead(head);
-        head.addSubortinate(headSub);
-        head.addSubortinate(headSub2);
+        head.addSubordinate(headSub);
+        head.addSubordinate(headSub2);
         List<Person> expected = new LinkedList<>();
         expected.add(headPerson);
         expected.add(headSubPerson);
@@ -86,7 +86,7 @@ public class HierarchyTests {
         Position headSubSub = new Position();
         Person headSubSubPerson = new Person("Test4","Test", new Date(), "Test", "Test", 1, "Test", "Test", "Test", "Test", new Profile());
         headSubSub.setPerson(headSubSubPerson);
-        headSub.addSubortinate(headSubSub);
+        headSub.addSubordinate(headSubSub);
         expected.add(2, headSubSubPerson);
         assertEquals("Expanded List should be like expected", expected, hierarchy.personList());
     }

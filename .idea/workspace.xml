@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7f2c52d-0036-4815-bfa4-53a420af42bf" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/test/at/htl/florianschwarcz/organisationalstructurelibtests/PositionTests.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/OrganisationalStructureLibrary/nbproject/private/private.properties" afterPath="" />
       <change beforePath="$PROJECT_DIR$/OrganisationalStructureLibrary/nbproject/private/private.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Hierarchy.java" afterPath="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Hierarchy.java" />
+      <change beforePath="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Job.java" afterPath="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Job.java" />
+      <change beforePath="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Position.java" afterPath="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Position.java" />
       <change beforePath="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Profile.java" afterPath="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Profile.java" />
       <change beforePath="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/test/at/htl/florianschwarcz/organisationalstructurelibtests/HierarchyTests.java" afterPath="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/test/at/htl/florianschwarcz/organisationalstructurelibtests/HierarchyTests.java" />
     </list>
@@ -83,11 +85,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="HierarchyTests.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HierarchyTests.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/test/at/htl/florianschwarcz/organisationalstructurelibtests/HierarchyTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="136" column="47" lean-forward="false" selection-start-line="136" selection-start-column="47" selection-end-line="136" selection-end-column="47" />
+            <state relative-caret-position="2373">
+              <caret line="123" column="22" lean-forward="false" selection-start-line="123" selection-start-column="22" selection-end-line="123" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -108,8 +110,18 @@
       <file leaf-file-name="Hierarchy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Hierarchy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="84" column="26" lean-forward="false" selection-start-line="84" selection-start-column="26" selection-end-line="84" selection-end-column="26" />
+            <state relative-caret-position="1890">
+              <caret line="99" column="17" lean-forward="false" selection-start-line="99" selection-start-column="17" selection-end-line="99" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PositionTests.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/test/at/htl/florianschwarcz/organisationalstructurelibtests/PositionTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="9" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -117,14 +129,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Person.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Person.java">
+      <file leaf-file-name="StaffTests.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/test/at/htl/florianschwarcz/organisationalstructurelibtests/StaffTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1054">
-              <caret line="93" column="15" lean-forward="false" selection-start-line="93" selection-start-column="15" selection-end-line="93" selection-end-column="15" />
+            <state relative-caret-position="378">
+              <caret line="18" column="66" lean-forward="false" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
               <folding>
-                <element signature="method#setSocialSecurityNumber#0;class#Person#0" expanded="false" />
+                <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Job.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Job.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -132,10 +154,11 @@
       <file leaf-file-name="Position.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Position.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+            <state relative-caret-position="1092">
+              <caret line="61" column="46" lean-forward="false" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
               <folding>
-                <element signature="e#2322#2323#0" expanded="true" />
+                <element signature="docComment;method#addSubordinate#0;class#Position#0" expanded="false" />
+                <element signature="method#addSubordinate#0;class#Position#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -144,9 +167,24 @@
       <file leaf-file-name="Profile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Profile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="30" column="24" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+            <state relative-caret-position="2247">
+              <caret line="113" column="17" lean-forward="false" selection-start-line="113" selection-start-column="17" selection-end-line="113" selection-end-column="17" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Staff.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Staff.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+              <folding>
+                <element signature="e#187#188#0" expanded="true" />
+                <element signature="e#209#210#0" expanded="true" />
+                <element signature="e#262#263#0" expanded="true" />
+                <element signature="e#284#285#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1101,18 +1139,21 @@
         <option value="$PROJECT_DIR$/lib/WorkflowManagementlib/src/main/at.htl.florianschwarcz.workflowmanagementlib/Split.java" />
         <option value="$PROJECT_DIR$/lib/WorkflowManagementlib/src/main/at.htl.florianschwarcz.workflowmanagementlib/Start.java" />
         <option value="$PROJECT_DIR$/lib/WorkflowManagementlib/src/main/at.htl.florianschwarcz.workflowmanagementlib/Workflow.java" />
-        <option value="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Job.java" />
         <option value="$PROJECT_DIR$/lib/WorkflowManagementlib/src/main/at.htl.florianschwarcz.workflowmanagementlib/SplitJoin.java" />
         <option value="$PROJECT_DIR$/lib/WorkflowManagementlib/src/main/at.htl.florianschwarcz.workflowmanagementlib/Merge.java" />
         <option value="$PROJECT_DIR$/lib/WorkflowManagementlib/src/main/at.htl.florianschwarcz.workflowmanagementlib/Branch.java" />
         <option value="$PROJECT_DIR$/lib/WorkflowManagementlib/src/main/at.htl.florianschwarcz.workflowmanagementlib/End.java" />
         <option value="$PROJECT_DIR$/lib/WorkflowManagementlib/src/main/at.htl.florianschwarcz.workflowmanagementlib/Fork.java" />
         <option value="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Person.java" />
-        <option value="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Position.java" />
         <option value="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/test/at/htl/florianschwarcz/organisationalstructuretests/HierarchyTests.java" />
+        <option value="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Job.java" />
+        <option value="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/test/at/htl/florianschwarcz/organisationalstructurelibtests/HierarchyTests.java" />
+        <option value="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/test/at/htl/florianschwarcz/organisationalstructurelibtests/PositionTests.java" />
+        <option value="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Position.java" />
+        <option value="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Staff.java" />
         <option value="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Profile.java" />
         <option value="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Hierarchy.java" />
-        <option value="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/test/at/htl/florianschwarcz/organisationalstructurelibtests/HierarchyTests.java" />
+        <option value="$PROJECT_DIR$/lib/OrganisationalStructurelib/src/test/at/htl/florianschwarcz/organisationalstructurelibtests/StaffTests.java" />
       </list>
     </option>
   </component>
@@ -1196,14 +1237,27 @@
               <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="organisationalstructurelibtests" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="BOBW-Organisation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BOBW-Organisation" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="WorkflowManagementlib" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="BOBW-Organisation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BOBW-Organisation" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="WorkflowManagementlib" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1227,7 +1281,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.BOBW-Organisation:lib:OrganisationalStructurelib [test]">
+  <component name="RunManager" selected="JUnit.StaffTests">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -1283,6 +1337,56 @@
         <option name="vmOptions" />
       </ExternalSystemSettings>
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    </configuration>
+    <configuration name="PositionTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="at.htl.florianschwarcz.organisationalstructurelibtests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="lib_OrganisationalStructurelib_test" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="at.htl.florianschwarcz.organisationalstructurelibtests" />
+      <option name="MAIN_CLASS_NAME" value="at.htl.florianschwarcz.organisationalstructurelibtests.PositionTests" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="StaffTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="at.htl.florianschwarcz.organisationalstructurelibtests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="lib_OrganisationalStructurelib_test" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="at.htl.florianschwarcz.organisationalstructurelibtests" />
+      <option name="MAIN_CLASS_NAME" value="at.htl.florianschwarcz.organisationalstructurelibtests.StaffTests" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -1344,14 +1448,18 @@
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
-    <list size="2">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Gradle.BOBW-Organisation:lib:WorkflowManagementlib [test]" />
       <item index="1" class="java.lang.String" itemvalue="Gradle.BOBW-Organisation:lib:OrganisationalStructurelib [test]" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.PositionTests" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.StaffTests" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Gradle.BOBW-Organisation:lib:OrganisationalStructurelib [test]" />
-        <item index="1" class="java.lang.String" itemvalue="Gradle.BOBW-Organisation:lib:WorkflowManagementlib [test]" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.StaffTests" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.PositionTests" />
+        <item index="2" class="java.lang.String" itemvalue="Gradle.BOBW-Organisation:lib:OrganisationalStructurelib [test]" />
+        <item index="3" class="java.lang.String" itemvalue="Gradle.BOBW-Organisation:lib:WorkflowManagementlib [test]" />
       </list>
     </recent_temporary>
   </component>
@@ -1372,35 +1480,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 19h 55m 35s.xml">
+    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 17h 01m 06s.xml">
       <configuration name="BOBW-Organisation:lib:OrganisationalStructurelib [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 19h 56m 40s.xml">
+    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.21 at 15h 41m 49s.xml">
       <configuration name="BOBW-Organisation:lib:OrganisationalStructurelib [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 19h 56m 48s.xml">
+    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.21 at 15h 44m 03s.xml">
       <configuration name="BOBW-Organisation:lib:OrganisationalStructurelib [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 19h 58m 46s.xml">
+    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.21 at 15h 44m 14s.xml">
       <configuration name="BOBW-Organisation:lib:OrganisationalStructurelib [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 19h 59m 15s.xml">
+    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.21 at 16h 12m 50s.xml">
       <configuration name="BOBW-Organisation:lib:OrganisationalStructurelib [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 19h 59m 36s.xml">
-      <configuration name="BOBW-Organisation:lib:OrganisationalStructurelib [test]" configurationId="GradleRunConfiguration" />
+    <history-entry file="PositionTests - 2017.12.21 at 16h 13m 04s.xml">
+      <configuration name="PositionTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 19h 59m 44s.xml">
-      <configuration name="BOBW-Organisation:lib:OrganisationalStructurelib [test]" configurationId="GradleRunConfiguration" />
+    <history-entry file="PositionTests - 2017.12.21 at 16h 13m 54s.xml">
+      <configuration name="PositionTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 20h 01m 46s.xml">
-      <configuration name="BOBW-Organisation:lib:OrganisationalStructurelib [test]" configurationId="GradleRunConfiguration" />
+    <history-entry file="PositionTests - 2017.12.21 at 16h 15m 45s.xml">
+      <configuration name="PositionTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 20h 01m 55s.xml">
-      <configuration name="BOBW-Organisation:lib:OrganisationalStructurelib [test]" configurationId="GradleRunConfiguration" />
+    <history-entry file="PositionTests - 2017.12.21 at 16h 31m 55s.xml">
+      <configuration name="PositionTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BOBW-Organisation_lib_OrganisationalStructurelib_[test] - 2017.12.14 at 20h 02m 50s.xml">
-      <configuration name="BOBW-Organisation:lib:OrganisationalStructurelib [test]" configurationId="GradleRunConfiguration" />
+    <history-entry file="StaffTests - 2017.12.21 at 17h 02m 30s.xml">
+      <configuration name="StaffTests" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -1413,15 +1521,14 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14136125" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27558637" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15991472" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17552084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15989584" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1432,6 +1539,8 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1446,31 +1555,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Hierarchy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1575">
-          <caret line="84" column="82" lean-forward="false" selection-start-line="84" selection-start-column="82" selection-end-line="84" selection-end-column="82" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Profile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1659">
-          <caret line="85" column="62" lean-forward="false" selection-start-line="85" selection-start-column="62" selection-end-line="85" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/WorkflowManagementlib/src/main/at.htl.florianschwarcz.workflowmanagementlib/Branch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/bobworga/main/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
@@ -1498,7 +1582,8 @@
         <state relative-caret-position="147">
           <caret line="12" column="27" lean-forward="false" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
           <folding>
-            <element signature="e#2322#2323#0" expanded="true" />
+            <element signature="docComment;method#addSubordinate#0;class#Position#0" expanded="false" />
+            <element signature="method#addSubordinate#0;class#Position#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1550,9 +1635,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1638">
           <caret line="87" column="28" lean-forward="false" selection-start-line="87" selection-start-column="28" selection-end-line="87" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1583,7 +1666,8 @@
         <state relative-caret-position="147">
           <caret line="12" column="27" lean-forward="false" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
           <folding>
-            <element signature="e#2322#2323#0" expanded="true" />
+            <element signature="docComment;method#addSubordinate#0;class#Position#0" expanded="false" />
+            <element signature="method#addSubordinate#0;class#Position#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1635,9 +1719,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1638">
           <caret line="87" column="28" lean-forward="false" selection-start-line="87" selection-start-column="28" selection-end-line="87" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1668,7 +1750,8 @@
         <state relative-caret-position="147">
           <caret line="12" column="27" lean-forward="false" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
           <folding>
-            <element signature="e#2322#2323#0" expanded="true" />
+            <element signature="docComment;method#addSubordinate#0;class#Position#0" expanded="false" />
+            <element signature="method#addSubordinate#0;class#Position#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1695,9 +1778,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1470">
           <caret line="79" column="25" lean-forward="false" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1786,16 +1867,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="93" column="15" lean-forward="false" selection-start-line="93" selection-start-column="15" selection-end-line="93" selection-end-column="15" />
-          <folding>
-            <element signature="method#setSocialSecurityNumber#0;class#Person#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1817,46 +1888,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Job.java">
+    <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Person.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Position.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+        <state relative-caret-position="1136">
+          <caret line="93" column="15" lean-forward="false" selection-start-line="93" selection-start-column="15" selection-end-line="93" selection-end-column="15" />
           <folding>
-            <element signature="e#2322#2323#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Profile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="30" column="24" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Hierarchy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="84" column="26" lean-forward="false" selection-start-line="84" selection-start-column="26" selection-end-line="84" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#setSocialSecurityNumber#0;class#Person#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/test/at/htl/florianschwarcz/organisationalstructurelibtests/HierarchyTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="136" column="47" lean-forward="false" selection-start-line="136" selection-start-column="47" selection-end-line="136" selection-end-column="47" />
+        <state relative-caret-position="2373">
+          <caret line="123" column="22" lean-forward="false" selection-start-line="123" selection-start-column="22" selection-end-line="123" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Position.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1092">
+          <caret line="61" column="46" lean-forward="false" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
+          <folding>
+            <element signature="docComment;method#addSubordinate#0;class#Position#0" expanded="false" />
+            <element signature="method#addSubordinate#0;class#Position#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Job.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Hierarchy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1890">
+          <caret line="99" column="17" lean-forward="false" selection-start-line="99" selection-start-column="17" selection-end-line="99" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/test/at/htl/florianschwarcz/organisationalstructurelibtests/PositionTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="9" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Profile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2247">
+          <caret line="113" column="17" lean-forward="false" selection-start-line="113" selection-start-column="17" selection-end-line="113" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/main/at/htl/florianschwarcz/organisationalstructurelib/Staff.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding>
+            <element signature="e#187#188#0" expanded="true" />
+            <element signature="e#209#210#0" expanded="true" />
+            <element signature="e#262#263#0" expanded="true" />
+            <element signature="e#284#285#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/OrganisationalStructurelib/src/test/at/htl/florianschwarcz/organisationalstructurelibtests/StaffTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="66" lean-forward="false" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

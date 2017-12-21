@@ -16,24 +16,24 @@ public class Position {
     private Person person;
     private Job job;
     private List<Position> subordinates;
-    private List<Position> staff;
+    private List<Staff> staff;
 
     public Position() {
     }
 
-    public List<Position> getStaff(){
+    public List<Staff> getStaff(){
         return staff;
     }
 
     /**
      * Adds a staff to the list.
-     * @param newStaff
+     * @param staff
      */
-    public void addStaff(Position newStaff){
-        if(staff == null){
-            staff = new LinkedList<>();
+    public void addStaff(Staff staff){
+        if(this.staff == null){
+            this.staff = new LinkedList<>();
         }
-        staff.add(newStaff);
+        this.staff.add(staff);
     }
 
     public List<Position> getSubordinates() {
@@ -56,6 +56,11 @@ public class Position {
         return allSubordinatePositions;
     }
 
+    /**
+     * Returns all subordinate persons and subordinate persons
+     * from subordinates.
+     * @return List of all subordinate persons
+     */
     public List<Person> getAllSubordinatePersons(){
         if(subordinates == null){
             return new LinkedList<>();
@@ -74,7 +79,7 @@ public class Position {
      * Adds a subordinate to the list.
      * @param subordinate
      */
-    public void addSubortinate(Position subordinate){
+    public void addSubordinate(Position subordinate){
         if(subordinates == null){
             subordinates = new LinkedList<>();
         }

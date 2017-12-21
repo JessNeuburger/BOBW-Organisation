@@ -88,4 +88,32 @@ public class Profile {
         }
         return score;
     }
+
+    /**
+     * Compares two profiles and returns which only has
+     * higher attributes.
+     * @param p1
+     * @param p2
+     * @return 1, if p1 has only higher or equal attributes, -1 if p2 has only higher or equal attributes, 0 if no one has only higher or equal attributes
+     */
+    public static int compareAllHigherOrEqual(Profile p1, Profile p2){
+        int higher = 0;
+        for(String key : p1.getAttributes().keySet()){
+            if(p2.getValue(key) != -1){
+                if(p1.getValue(key) > p2.getValue(key) && higher == -1){
+                    return 0;
+                }
+                if(p1.getValue(key) < p2.getValue(key) && higher == 1){
+                    return 0;
+                }
+                if(p1.getValue(key) > p2.getValue(key)){
+                    higher = 1;
+                }
+                else if(p1.getValue(key) < p2.getValue(key)){
+                    higher = -1;
+                }
+            }
+        }
+        return higher;
+    }
 }

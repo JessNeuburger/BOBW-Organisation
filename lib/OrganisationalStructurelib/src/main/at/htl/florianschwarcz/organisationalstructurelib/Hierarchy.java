@@ -13,6 +13,14 @@ import java.util.List;
  * @author Florian Schwarcz
  */
 public class Hierarchy {
+    private static Hierarchy instance;
+    public static Hierarchy getInstance(){
+        if(instance == null){
+            instance = new Hierarchy();
+        }
+        return instance;
+    }
+
     private Position head;
 
     public Hierarchy() {
@@ -82,13 +90,17 @@ public class Hierarchy {
      */
     public Job getBestJob(Profile profile){
         Job bestJob = null;
-        int bestScore = 0;
+        boolean bestJobIsAllLower = false;
+        int bestPoints = 0;
         for(Position position : positionList()){
-            System.out.println("went in");
-            System.out.println(Profile.compareProfiles(profile, position.getJob().getProfile()));
-            if(bestJob == null || Profile.compareProfiles(profile, position.getJob().getProfile()) > bestScore) {
-                bestScore = Profile.compareProfiles(profile, position.getJob().getProfile());
-                bestJob = position.getJob();
+            if(bestJob == null || Profile.compareProfiles(profile, position.getJob().getProfile()) > bestPoints) {
+                bestPoints = Profile.compareProfiles(position.getJob().getProfile(), profile);
+                if(!(bestJobIsAllLower && Profile.compareProfiles(position.getJob().getProfile(), bestJob.getProfile()) > 0)) {
+                    bestJob = position.getJob();
+                }
+                if(Profile.compareAllHigherOrEqual(profile, bestJob.getProfile()) == 1){
+                    bestJobIsAllLower = true;
+                }
             }
         }
         return bestJob;

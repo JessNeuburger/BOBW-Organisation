@@ -2,15 +2,18 @@ package main;
 
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.shape.Line;
 
 
 public class OrganigramPane extends ScrollPane {
 
     private PosPane head;
 
+    //TODO can this be omitted
     private Pane dragPane;
 
     private DoubleProperty centerPos;
@@ -19,7 +22,6 @@ public class OrganigramPane extends ScrollPane {
         StackPane centerPane = new StackPane();
         centerPane.setPrefSize(StackPane.USE_COMPUTED_SIZE,StackPane.USE_COMPUTED_SIZE);
         centerPane.setCenterShape(true);
-        centerPane.setStyle("-fx-background-color: blue;");
 
         dragPane = new Pane();
         dragPane.setPrefSize(Pane.USE_COMPUTED_SIZE,Pane.USE_COMPUTED_SIZE);
@@ -31,16 +33,13 @@ public class OrganigramPane extends ScrollPane {
         centerPos = new SimpleDoubleProperty(0);
     }
 
-    public PosPane getHead() {
+    public PosPane getRootPosPane() {
         return head;
     }
 
-    public void setHead(PosPane head) {
-        this.head = head;
-    }
-
-    public void addPos(){
-        PosPane b = new PosPane(head,this);
+    @Deprecated
+    public void addPos(Node child){
+        PosPane b = new PosPane(head,this, child);
         dragPane.getChildren().add(b);
         if(this.head != null){
             b.setParentPos(head);
@@ -54,6 +53,25 @@ public class OrganigramPane extends ScrollPane {
             b.layoutXProperty().bind(offsetPosProperty());
             this.head = b;
         }
+    }
+
+    public void stagePos(PosPane pos){
+        dragPane.getChildren().addAll(pos);
+    }
+
+    public void setRoot(PosPane rootPane){
+        if(this.head != null) throw new IllegalStateException("Root is already set.");
+        rootPane.layoutXProperty().bind(offsetPosProperty());
+        this.head = rootPane;
+        dragPane.getChildren().add(rootPane);
+    }
+
+    public void stageLine(Line l){
+        dragPane.getChildren().addAll(l);
+    }
+
+    public void setRoot(Node child){
+        setRoot(new PosPane(null, this,child));
     }
 
     public double getOffsetPos() {

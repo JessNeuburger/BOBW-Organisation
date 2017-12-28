@@ -4,10 +4,13 @@
 package main;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+
+import java.beans.EventHandler;
 
 public final class App extends Application {
 
@@ -24,10 +27,26 @@ public final class App extends Application {
         rootPane.setCenter(p);
         rootPane.setBottom(b);
 
-        b.setOnAction(actionEvent -> p.addPos());
+        b.setOnAction(actionEvent -> {
+            Button rootButt = new Button("Root");
+            PosPane rootPos = new PosPane(null,p,rootButt);
+            rootButt.setOnAction(actionEvent1 -> {
+                addChild(rootPos);
+            });
+            p.setRoot(rootPos);
+        });
 
         Scene q = new Scene(rootPane, 400, 300);
         stage.setScene(q);
         stage.show();
+    }
+
+    public void addChild(PosPane parentPos){
+        Button newButt = new Button("Root");
+        PosPane newPos = new PosPane(parentPos,newButt);
+        newButt.setOnAction(actionEvent1 -> {
+            addChild(newPos);
+        });
+        parentPos.addPos(newPos);
     }
 }

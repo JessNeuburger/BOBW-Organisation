@@ -1,14 +1,13 @@
 package main;
 
 import javafx.beans.binding.DoubleBinding;
-import javafx.beans.binding.IntegerBinding;
-import javafx.beans.property.*;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ReadOnlyDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
+import javafx.scene.Node;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
+import javafx.scene.shape.Line;
 
 import java.util.ArrayList;
 
@@ -21,8 +20,15 @@ public class PosPane extends HBox {
     private IntegerProperty childLength;
     private OrganigramPane organigramPane;
 
-    public PosPane(PosPane parentPos, OrganigramPane organigramPane) {
-        this.getChildren().addAll(new Button("Test"));
+    public PosPane(PosPane parentPos, Node child) {
+        this(parentPos, parentPos.organigramPane, child);
+    }
+
+    public PosPane(PosPane parentPos, OrganigramPane organigramPane, Node child) {
+
+        this.setStyle("-fx-background-color: lightgray;");
+
+        this.getChildren().add(child);
         this.parentPos = parentPos;
         this.childPos = new ArrayList<>();
         this.organigramPane = organigramPane;
@@ -44,6 +50,12 @@ public class PosPane extends HBox {
     public int addChildPos(PosPane child){
         this.childPos.add(child);
         childLength.setValue(this.childPos.size());
+        Line l = new Line();
+        l.startYProperty().bind(lineLeaveYProperty());
+        l.startXProperty().bind(lineLeaveXProperty());
+        l.endXProperty().bind(child.lineEntryXProperty());
+        l.endYProperty().bind(child.lineEntryYProperty());
+        organigramPane.stageLine(l);
         return this.childPos.size()-1;
     }
 
@@ -58,6 +70,20 @@ public class PosPane extends HBox {
     public DoubleBinding centerXProperty(){
         return layoutXProperty().add(widthProperty().divide(2));
     }
+
+    public DoubleBinding lineEntryXProperty(){
+        return centerXProperty();
+    }
+    public ReadOnlyDoubleProperty lineEntryYProperty(){
+        return layoutYProperty();
+    }
+    public DoubleBinding lineLeaveXProperty(){
+        return centerXProperty();
+    }
+    public DoubleBinding lineLeaveYProperty(){
+        return layoutYProperty().add(heightProperty());
+    }
+
 
     public DoubleBinding getChildX(int index) {
         DoubleBinding b = centerXProperty().subtract(
@@ -74,5 +100,17 @@ public class PosPane extends HBox {
 
     public OrganigramPane getOrganigramParent(){
         return organigramPane;
+    }
+
+    public void addPos(Node child){
+        PosPane b = new PosPane(this,organigramPane, child);
+        addPos(b);
+    }
+
+    public void addPos(PosPane b){
+        organigramPane.stagePos(b);
+        int index = addChildPos(b);
+        b.layoutXProperty().bind(b.getParentPos().getChildX(index));
+        b.layoutYProperty().bind(b.getParentPos().getChildY(index));
     }
 }

@@ -19,7 +19,8 @@ rootProject.name = 'BOBW-Organisation'
 //includeTraining 'Gradle_Demo'
 
 includeLibrary 'examplelib'
-
+includeLibrary 'OrganisationalStructurelib'
+includeLibrary 'WorkflowManagementlib'
 includeTraining 'exampleTraining'
 includeTraining 'javafx_mayrhofer'
 includeTraining 'javafx_organigram_demo'

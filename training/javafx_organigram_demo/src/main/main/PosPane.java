@@ -3,25 +3,33 @@ package main;
 import javafx.beans.binding.DoubleBinding;
 import javafx.beans.binding.IntegerBinding;
 import javafx.beans.property.*;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
 import java.util.ArrayList;
 
-public class PosPane extends Pane {
+public class PosPane extends HBox {
 
-    public static final int POS_PANE_WIDTH = 50;
+    public static final int POS_PANE_WIDTH = 120;
 
     private PosPane parentPos;
     private ArrayList<PosPane> childPos;
     private IntegerProperty childLength;
+    private OrganigramPane organigramPane;
 
-    public PosPane(PosPane parentPos) {
+    public PosPane(PosPane parentPos, OrganigramPane organigramPane) {
         this.getChildren().addAll(new Button("Test"));
-        this.setStyle("-fx-background-color: black;");
         this.parentPos = parentPos;
         this.childPos = new ArrayList<>();
+        this.organigramPane = organigramPane;
         this.setPrefWidth(POS_PANE_WIDTH);
+        this.setMaxWidth(POS_PANE_WIDTH);
+        this.setMinWidth(POS_PANE_WIDTH);
+        this.setPadding(new Insets(10));
         childLength = new SimpleIntegerProperty(0);
     }
 
@@ -39,18 +47,8 @@ public class PosPane extends Pane {
         return this.childPos.size()-1;
     }
 
-    public ReadOnlyDoubleProperty getChildWidth(int index){
-        return childPos.get(index).widthProperty();
-    }
-
-    public DoubleBinding getPreChildWidth(int index){
-        DoubleBinding prop = childPos.get(0).widthProperty().add(0);
-
-        for(int i = 1; i < index; i++){
-            prop = prop.add(childPos.get(i).widthProperty());
-        }
-
-        return prop;
+    public PosPane getChildPos(int index){
+        return childPos.get(index);
     }
 
     public DoubleBinding getChildY(int index) {
@@ -62,14 +60,19 @@ public class PosPane extends Pane {
     }
 
     public DoubleBinding getChildX(int index) {
-        //DoubleBinding b = layoutXProperty().add(widthProperty().multiply(index));
-
-        //CenterX - CompleteWidth/2
-        //DoubleBinding b = layoutXProperty().add(childLength.multiply(widthProperty()).divide(2)).add(getChildWidth().multiply(index));
         DoubleBinding b = centerXProperty().subtract(
                 childLength.multiply(POS_PANE_WIDTH/2)
         ).add(POS_PANE_WIDTH*index);
-        System.out.println("getChildX("+index+") "+b.get());
+
+        b.addListener((observableValue, number, t1) -> {
+            if(t1.doubleValue() < 0){
+                getOrganigramParent().setOffsetPos(getOrganigramParent().getOffsetPos()-t1.doubleValue());
+            }
+        });
         return b;
+    }
+
+    public OrganigramPane getOrganigramParent(){
+        return organigramPane;
     }
 }

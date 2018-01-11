@@ -29,7 +29,7 @@ public final class App extends Application {
 
         b.setOnAction(actionEvent -> {
             Button rootButt = new Button("Root");
-            PosPane rootPos = new PosPane(null,p,rootButt);
+            PosPane rootPos = new PosPane(null,p,rootButt, "Root");
             rootButt.setOnAction(actionEvent1 -> {
                 addChild(rootPos);
             });
@@ -41,9 +41,12 @@ public final class App extends Application {
         stage.show();
     }
 
+    private int tmpIndex = 0;
+
     public void addChild(PosPane parentPos){
-        Button newButt = new Button("Root");
-        PosPane newPos = new PosPane(parentPos,newButt);
+        Button newButt = new Button("Child "+tmpIndex);
+        PosPane newPos = new PosPane(parentPos,newButt,"Child "+tmpIndex);
+        tmpIndex++;
         newButt.setOnAction(actionEvent1 -> {
             addChild(newPos);
         });

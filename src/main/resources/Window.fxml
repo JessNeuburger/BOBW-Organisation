@@ -15,7 +15,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1100.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+      <TabPane tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="TOP_LEFT">
         <tabs>
           <Tab text="Organigramm">
             <content>
@@ -34,18 +34,32 @@
             </Tab>
         </tabs>
          <BorderPane.margin>
-            <Insets top="100.0" />
+            <Insets />
          </BorderPane.margin>
       </TabPane>
    </center>
    <left>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-           <fx:include source="HrList.fxml" />
-         </children>
-         <BorderPane.margin>
-            <Insets top="100.0" />
-         </BorderPane.margin>
-      </AnchorPane>
+     <fx:include source="HrList.fxml" />
    </left>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
 </BorderPane>

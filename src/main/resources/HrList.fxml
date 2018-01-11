@@ -6,10 +6,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<VBox id="HRBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox id="HRBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ListView id="HRList" prefHeight="700.0" prefWidth="300.0" />
+      <ListView id="HRList" prefHeight="700.0" prefWidth="300.0" VBox.vgrow="ALWAYS" />
       <Button id="AddButton" mnemonicParsing="false" prefHeight="100.0" prefWidth="300.0" text="+" />
    </children>
 </VBox>

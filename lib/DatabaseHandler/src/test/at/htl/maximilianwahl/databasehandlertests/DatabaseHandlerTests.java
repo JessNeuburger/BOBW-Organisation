@@ -2,6 +2,7 @@ package at.htl.maximilianwahl.databasehandlertests;
 
 
 
+import at.htl.maximilianwahl.databasehandler.StatementBuilder;
 import at.htl.maximilianwahl.databasehandler.derbyDBConnectionHandler;
 import org.junit.Assert.*;
 import org.junit.Test;
@@ -18,9 +19,9 @@ public class DatabaseHandlerTests {
     public void TestInitShouldReturnNoError() throws SQLException {
         derbyDBConnectionHandler handler = new derbyDBConnectionHandler();
         handler.openConnection();
-        try{
+        try {
             handler.init();
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 

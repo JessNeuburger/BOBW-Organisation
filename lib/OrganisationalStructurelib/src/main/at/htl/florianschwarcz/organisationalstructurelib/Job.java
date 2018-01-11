@@ -5,11 +5,13 @@
  */
 package at.htl.florianschwarcz.organisationalstructurelib;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Florian Schwarcz
  */
-public class Job {
+public class Job{
     private String name;
     private Profile profile;
     

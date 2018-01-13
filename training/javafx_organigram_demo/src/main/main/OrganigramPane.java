@@ -41,7 +41,7 @@ public class OrganigramPane extends ScrollPane {
 
 
         TreeLayer firstLayer = new TreeLayer();
-        TreeLayerGroup headLayerGroup = new TreeLayerGroup(null, firstLayer);
+        TreeLayerGroup headLayerGroup = new TreeLayerGroup(firstLayer);
         TreeLayerPos headPos = new TreeLayerPos(head, firstLayer);
         headLayerGroup.add(headPos);
         firstLayer.add(headLayerGroup);
@@ -52,7 +52,7 @@ public class OrganigramPane extends ScrollPane {
 
             for(TreeLayerGroup g : spaces.get(spaces.size()-1)){
                 for(TreeLayerPos p : g){
-                    TreeLayerGroup currGroup = new TreeLayerGroup(p,currLayer);
+                    TreeLayerGroup currGroup = new TreeLayerGroup(currLayer);
                     currGroup.addAll(p.getPos().getChildPos());
                     if(currGroup.size() > 0) {
                         p.setChildren(currGroup);

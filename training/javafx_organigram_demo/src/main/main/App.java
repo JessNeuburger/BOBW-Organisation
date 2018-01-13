@@ -4,13 +4,10 @@
 package main;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.scene.*;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-
-import java.beans.EventHandler;
 
 public final class App extends Application {
 

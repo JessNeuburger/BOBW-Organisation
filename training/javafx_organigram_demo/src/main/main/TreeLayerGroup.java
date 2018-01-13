@@ -1,22 +1,13 @@
 package main;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class TreeLayerGroup extends ArrayList<TreeLayerPos> {
-    private TreeLayerPos parent;
     private TreeLayer layer;
 
 
-    public TreeLayerGroup(TreeLayerPos parent, TreeLayer layer) {
-        this.parent = parent;
-        this.layer = layer;
-    }
-
-    public TreeLayerGroup(Collection<? extends TreeLayerPos> c, TreeLayerPos parent, TreeLayer layer) {
-        super(c);
-        this.parent = parent;
+    public TreeLayerGroup(TreeLayer layer) {
         this.layer = layer;
     }
 
@@ -53,14 +44,6 @@ public class TreeLayerGroup extends ArrayList<TreeLayerPos> {
             max = Math.max(p.getEndX(), max);
         }
         return max;
-    }
-
-    public TreeLayerPos getParent() {
-        return parent;
-    }
-
-    public void setParent(TreeLayerPos parent) {
-        this.parent = parent;
     }
 
 

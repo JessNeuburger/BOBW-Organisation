@@ -6,9 +6,8 @@ public class TreeLayer extends ArrayList<TreeLayerGroup> {
     private int height;
     private int startY;
 
-    public TreeLayer() {
-    }
-
+    //<editor-fold desc="Getters and Setters">
+    //<editor-fold desc="Position Getters & Setters">
     public int getStartY() {
         return startY;
     }
@@ -22,13 +21,13 @@ public class TreeLayer extends ArrayList<TreeLayerGroup> {
         for(TreeLayerGroup g : this){
             endX = Math.max(endX,g.getEndX());
         }
-        System.out.println("TreeLayer calculating endX "+endX);
         return endX;
     }
 
     public void setStartY(int startY) {
         this.startY = startY;
     }
+    //</editor-fold>
 
     public int getHeight() {
         return height;
@@ -37,5 +36,6 @@ public class TreeLayer extends ArrayList<TreeLayerGroup> {
     public void setHeight(int height) {
         this.height = height;
     }
+    //</editor-fold>
 
 }

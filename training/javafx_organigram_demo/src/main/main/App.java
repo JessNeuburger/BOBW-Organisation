@@ -26,7 +26,7 @@ public final class App extends Application {
 
         b.setOnAction(actionEvent -> {
             Button rootButt = new Button("Root");
-            PosPane rootPos = new PosPane(null,p,rootButt, "Root");
+            PosPane rootPos = new PosPane(p,rootButt, "Root");
             rootButt.setOnAction(actionEvent1 -> {
                 addChild(rootPos);
             });

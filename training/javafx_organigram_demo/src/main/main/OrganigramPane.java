@@ -107,7 +107,7 @@ public class OrganigramPane extends ScrollPane {
     }
 
     public void setRoot(Node child){
-        setRoot(new PosPane(null, this,child,"Root"));
+        setRoot(new PosPane(this,child,"Root"));
     }
 
     public double getOffsetPos() {

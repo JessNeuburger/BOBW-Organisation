@@ -16,6 +16,15 @@ public class TreeLayer extends ArrayList<TreeLayerGroup> {
         return getStartY()+getHeight();
     }
 
+    public int getEndX(){
+        int endX = 0;
+        for(TreeLayerGroup g : this){
+            endX = Math.max(endX,g.getEndX());
+        }
+        System.out.println("TreeLayer calculating endX "+endX);
+        return endX;
+    }
+
     public void setStartY(int startY) {
         this.startY = startY;
     }

@@ -40,113 +40,62 @@ public class OrganigramPane extends ScrollPane {
     }
 
     public void relayout(){
-        System.out.println("Relayout");
+        System.out.println("=-=-=-Relayout-=-=-=");
         ArrayList<TreeLayer> spaces = new ArrayList<>();
 
 
         TreeLayer firstLayer = new TreeLayer(null);
-        TreeLayerGroup headLayerGroup = new TreeLayerGroup(null);
-        headLayerGroup.add(new TreeLayerPos(head));
+        TreeLayerGroup headLayerGroup = new TreeLayerGroup(null, firstLayer);
+        TreeLayerPos headPos = new TreeLayerPos(head, firstLayer, headLayerGroup);
+        headLayerGroup.add(headPos);
         firstLayer.add(headLayerGroup);
         spaces.add(firstLayer);
 
+        TreeLayer aboveLayer = firstLayer;
         while(true){
-            TreeLayer currLayer = new TreeLayer(null);
+            TreeLayer currLayer = new TreeLayer(aboveLayer);
 
             for(TreeLayerGroup g : spaces.get(spaces.size()-1)){
                 for(TreeLayerPos p : g){
-                    TreeLayerGroup currGroup = new TreeLayerGroup(p);
+                    TreeLayerGroup currGroup = new TreeLayerGroup(p,currLayer);
                     currGroup.addAll(p.getPos().getChildPos());
-                    if(currGroup.size() > 0)
+                    if(currGroup.size() > 0) {
+                        p.setChildren(currGroup);
                         currLayer.add(currGroup);
+                    }
                 }
             }
             if(currLayer.size() == 0)
                 break;
             spaces.add(currLayer);
+            aboveLayer = currLayer;
         }
-
-
-        System.out.println("----Calculating Layouts-----");
-        int widestLayer = 0;
-        TreeLayer widestL = null;
 
         int lastY = 0;
         for(TreeLayer l : spaces){
             double maxHeight = 0;
-            int layerWidth = 0;
-
             for(TreeLayerGroup g : l){
-                int width = 0;
                 for(TreeLayerPos p : g){
-                    //TODO Maybe make this a little bit more responsive
-                    width+=p.getWidth();
                     maxHeight = Math.max(maxHeight,PosPane.POS_PANE_HEIGHT+2*PosPane.POS_PANE_MARGIN_Y);
                 }
-                g.setWidth(width);
-                layerWidth += width;
             }
             l.setHeight((int)maxHeight);
             l.setStartY(lastY);
             lastY = l.getEndY();
-            l.setWidth(layerWidth);
-            if(layerWidth > widestLayer)
-                widestL = l;
-            widestLayer = Math.max(widestLayer, layerWidth);
-        }
-        //Linearly Layout
-        for(TreeLayer l : spaces){
-            int lastX = 0;
-            for(TreeLayerGroup g : l){
-                g.setStartX(lastX);
-                lastX = g.getEndX();
-            }
         }
 
-        //Center
-        System.out.println("---Calculating Layer offsets---");
-        for(TreeLayer l : spaces){
-            int layeroffset = (widestLayer-l.getWidth())/2;
-            System.out.println("Layer: "+layeroffset);
-            for(TreeLayerGroup g:l){
-                g.setStartX(g.getStartX()+layeroffset);
-            }
-        }
-
-        //Apply
-        for(TreeLayer l : spaces){
-            for(TreeLayerGroup g : l){
-                int lastPosX = g.getStartX();
-                for(TreeLayerPos p : g){
-                    p.setX(lastPosX);
-                    p.setY(l.getStartY());
-                    lastPosX+=p.getWidth();
-                }
-            }
-        }
-
-        //Distribute
-        System.out.println("---Distributing Nodes---");
-        assert widestL != null;
-        for(TreeLayerGroup g : widestL){
-            if(g.getParent() != null) {
-                System.out.println("Widest Layer not top");
-                int middle = g.getStartX() + g.getWidth() / 2;
-                g.getParent().setMiddle(middle);
-            }
-        }
+        headPos.bubbleDown();
 
         //PosPane set Pos
         for(TreeLayer l : spaces){
             for(TreeLayerGroup g : l){
                 for(TreeLayerPos p : g){
-                    p.getPos().setLayoutX(p.getX());
+                    p.getPos().setLayoutX(p.getStartX());
                     p.getPos().setLayoutY(p.getY());
                 }
             }
         }
-
-
+/*
         //Debug print
         System.out.println("========");
         for(TreeLayer l : spaces){
@@ -158,7 +107,7 @@ public class OrganigramPane extends ScrollPane {
 
                 }
             }
-        }
+        }*/
     }
 
     public void stagePos(PosPane pos){

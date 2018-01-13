@@ -6,32 +6,53 @@ import java.util.List;
 
 public class TreeLayerGroup extends ArrayList<TreeLayerPos> {
     private TreeLayerPos parent;
+    private TreeLayer layer;
 
-    private int width;
-    private int startX;
+
+    public TreeLayerGroup(TreeLayerPos parent, TreeLayer layer) {
+        this.parent = parent;
+        this.layer = layer;
+    }
+
+    public TreeLayerGroup(Collection<? extends TreeLayerPos> c, TreeLayerPos parent, TreeLayer layer) {
+        super(c);
+        this.parent = parent;
+        this.layer = layer;
+    }
+
+    public TreeLayer getLayer() {
+        return layer;
+    }
+
+    public void setLayer(TreeLayer layer) {
+        this.layer = layer;
+    }
 
     public int getWidth() {
-        return width;
+        return getEndX()-getStartX();
     }
 
+    //TODO Cache this
     public int getStartX() {
-        return startX;
+        int min = get(0).getStartX();
+        for(TreeLayerPos p : this){
+            min = Math.min(p.getStartX(), min);
+        }
+        return min;
     }
 
+    /*
     public void setStartX(int startX) {
         this.startX = startX;
-    }
+    }*/
 
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
+    //TODO Cache this
     public int getEndX(){
-        return startX+width;
-    }
-
-    public TreeLayerGroup(TreeLayerPos parent) {
-        this.parent = parent;
+        int max = 0;
+        for(TreeLayerPos p : this){
+            max = Math.max(p.getEndX(), max);
+        }
+        return max;
     }
 
     public TreeLayerPos getParent() {
@@ -42,14 +63,41 @@ public class TreeLayerGroup extends ArrayList<TreeLayerPos> {
         this.parent = parent;
     }
 
-    public TreeLayerGroup(Collection<? extends TreeLayerPos> c, TreeLayerPos parent) {
-        super(c);
-        this.parent = parent;
-    }
+
 
     public void addAll(List<PosPane> c){
+        TreeLayerPos prev = null;
         for(PosPane p:c){
-            add(new TreeLayerPos(p));
+            TreeLayerPos curr = new TreeLayerPos(p,layer, this);
+            curr.setPrevPos(prev);
+            prev = curr;
+            add(curr);
         }
+    }
+
+    public int getMiddle() {
+        return (getStartX()+getEndX())/2;
+    }
+
+    /*
+    public void setMiddle(int middle) {
+        setStartX(middle-getWidth()/2);
+    }*/
+
+    public void propagateMiddle(int minimalMiddle) {
+        System.out.println("- TreeLayerGroup propagating minMiddle of "+minimalMiddle);
+
+        forEach(TreeLayerPos::bubbleDown);
+
+        int offset = minimalMiddle-getMiddle();
+        if(offset > 0){
+            //SetMiddle(minimalMiddle)
+            propagateOffset(offset);
+        }
+
+    }
+
+    public void propagateOffset(int offset) {
+        forEach((tlp) -> tlp.propagateOffset(offset));
     }
 }

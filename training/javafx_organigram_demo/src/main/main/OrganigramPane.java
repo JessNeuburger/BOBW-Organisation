@@ -35,25 +35,20 @@ public class OrganigramPane extends ScrollPane {
         centerPos = new SimpleDoubleProperty(0);
     }
 
-    public PosPane getRootPosPane() {
-        return head;
-    }
-
     public void relayout(){
         System.out.println("=-=-=-Relayout-=-=-=");
         ArrayList<TreeLayer> spaces = new ArrayList<>();
 
 
-        TreeLayer firstLayer = new TreeLayer(null);
+        TreeLayer firstLayer = new TreeLayer();
         TreeLayerGroup headLayerGroup = new TreeLayerGroup(null, firstLayer);
-        TreeLayerPos headPos = new TreeLayerPos(head, firstLayer, headLayerGroup);
+        TreeLayerPos headPos = new TreeLayerPos(head, firstLayer);
         headLayerGroup.add(headPos);
         firstLayer.add(headLayerGroup);
         spaces.add(firstLayer);
 
-        TreeLayer aboveLayer = firstLayer;
         while(true){
-            TreeLayer currLayer = new TreeLayer(aboveLayer);
+            TreeLayer currLayer = new TreeLayer();
 
             for(TreeLayerGroup g : spaces.get(spaces.size()-1)){
                 for(TreeLayerPos p : g){
@@ -68,7 +63,6 @@ public class OrganigramPane extends ScrollPane {
             if(currLayer.size() == 0)
                 break;
             spaces.add(currLayer);
-            aboveLayer = currLayer;
         }
 
         int lastY = 0;
@@ -95,19 +89,6 @@ public class OrganigramPane extends ScrollPane {
                 }
             }
         }
-/*
-        //Debug print
-        System.out.println("========");
-        for(TreeLayer l : spaces){
-            System.out.println("Layer: "+l.getStartY()+"-  "+l.getHeight()+"  -"+l.getEndY());
-            for(TreeLayerGroup g : l){
-                System.out.println("-Group: "+g.getStartX()+"-  "+g.getWidth()+"  -"+g.getEndX());
-                for(TreeLayerPos p : g){
-                    System.out.println("--PosPane: "+p.getPos().getName());
-
-                }
-            }
-        }*/
     }
 
     public void stagePos(PosPane pos){

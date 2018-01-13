@@ -66,23 +66,14 @@ public class TreeLayerGroup extends ArrayList<TreeLayerPos> {
 
 
     public void addAll(List<PosPane> c){
-        TreeLayerPos prev = null;
         for(PosPane p:c){
-            TreeLayerPos curr = new TreeLayerPos(p,layer, this);
-            curr.setPrevPos(prev);
-            prev = curr;
-            add(curr);
+            add(new TreeLayerPos(p,layer));
         }
     }
 
     public int getMiddle() {
         return (getStartX()+getEndX())/2;
     }
-
-    /*
-    public void setMiddle(int middle) {
-        setStartX(middle-getWidth()/2);
-    }*/
 
     public void propagateMiddle(int minimalMiddle) {
         System.out.println("- TreeLayerGroup propagating minMiddle of "+minimalMiddle);
@@ -91,7 +82,6 @@ public class TreeLayerGroup extends ArrayList<TreeLayerPos> {
 
         int offset = minimalMiddle-getMiddle();
         if(offset > 0){
-            //SetMiddle(minimalMiddle)
             propagateOffset(offset);
         }
 

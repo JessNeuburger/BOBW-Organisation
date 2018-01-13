@@ -5,8 +5,9 @@ import java.util.ArrayList;
 public class TreeLayer extends ArrayList<TreeLayerGroup> {
     private int height;
     private int startY;
-    private int width;
-    private TreeLayer parentLayer;
+
+    public TreeLayer() {
+    }
 
     public int getStartY() {
         return startY;
@@ -37,19 +38,4 @@ public class TreeLayer extends ArrayList<TreeLayerGroup> {
         this.height = height;
     }
 
-    public int getWidth() {
-        return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public TreeLayer getParentLayer() {
-        return parentLayer;
-    }
-
-    public TreeLayer(TreeLayer parentLayer) {
-        this.parentLayer = parentLayer;
-    }
 }

@@ -2,6 +2,8 @@
  * Handling mouse events with event filters
  */
 
+import at.htl.erikmayrhofer.organigrampane.OrganigramPane;
+import at.htl.erikmayrhofer.organigrampane.PosPane;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;

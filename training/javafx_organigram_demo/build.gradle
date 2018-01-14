@@ -1,0 +1,10 @@
+apply plugin: 'javafx-gradle-plugin'
+
+//mainClassName = 'ExampleTraining'
+
+jfx {
+    mainClass = 'main.App'
+    vendor = 'Obyoxar'
+    verbose = true
+
+}

@@ -11,10 +11,8 @@ buildscript {
 
 apply plugin: 'javafx-gradle-plugin'
 
-//mainClassName = 'ExampleTraining'
-
 jfx {
-    mainClass = 'main.bobworga.main.App'
-    vendor = 'Obyoxar'
+    mainClass = 'bobworga.main.App'
+    vendor = 'Jan Neuburger'
     verbose = true
 }

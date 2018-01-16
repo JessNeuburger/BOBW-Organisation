@@ -1,5 +1,6 @@
 package at.htl.erikmayrhofer.organigrampane;
 
+import javafx.application.Platform;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.Node;
@@ -13,6 +14,10 @@ import java.util.ArrayList;
 
 public class OrganigramPane extends ScrollPane {
 
+
+
+    private OrganigramController controller;
+
     private PosPane head;
 
     //TODO can this be omitted
@@ -20,7 +25,10 @@ public class OrganigramPane extends ScrollPane {
 
     private DoubleProperty centerPos;
 
-    public OrganigramPane() {
+    public OrganigramPane(OrganigramController controller) {
+        controller.setOrganigramPane(this);
+        this.controller = controller;
+
         StackPane centerPane = new StackPane();
         centerPane.setPrefSize(StackPane.USE_COMPUTED_SIZE,StackPane.USE_COMPUTED_SIZE);
         centerPane.setCenterShape(true);
@@ -35,7 +43,15 @@ public class OrganigramPane extends ScrollPane {
         centerPos = new SimpleDoubleProperty(0);
     }
 
-    public void relayout(){
+    public OrganigramController getController() {
+        return controller;
+    }
+
+    public void invalidate(){
+        Platform.runLater(this::relayout);
+    }
+
+    void relayout(){
         System.out.println("=-=-=-Relayout-=-=-=");
         ArrayList<TreeLayer> spaces = new ArrayList<>();
 
@@ -91,34 +107,34 @@ public class OrganigramPane extends ScrollPane {
         }
     }
 
-    public void stagePos(PosPane pos){
+    void stagePos(PosPane pos){
         dragPane.getChildren().addAll(pos);
     }
 
-    public void setRoot(PosPane rootPane){
+    void setRoot(PosPane rootPane){
         if(this.head != null) throw new IllegalStateException("Root is already set.");
         //rootPane.layoutXProperty().bind(offsetPosProperty());
         this.head = rootPane;
         dragPane.getChildren().add(rootPane);
     }
 
-    public void stageLine(Line l){
+    void stageLine(Line l){
         dragPane.getChildren().addAll(l);
     }
 
-    public void setRoot(Node child){
+    private void setRoot(Node child){
         setRoot(new PosPane(this,child,"Root"));
     }
 
-    public double getOffsetPos() {
+    private double getOffsetPos() {
         return centerPos.get();
     }
 
-    public DoubleProperty offsetPosProperty() {
+    private DoubleProperty offsetPosProperty() {
         return centerPos;
     }
 
-    public void setOffsetPos(double centerPos) {
+    private void setOffsetPos(double centerPos) {
         this.centerPos.set(centerPos);
     }
 }

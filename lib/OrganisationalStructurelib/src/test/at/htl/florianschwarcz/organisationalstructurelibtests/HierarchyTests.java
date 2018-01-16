@@ -123,7 +123,7 @@ public class HierarchyTests {
     }
 
     @Test
-    public void T07_GetBestJob(){
+    public void T07_GetBestJob() {
         Hierarchy hierarchy = new Hierarchy();
         Profile profile = new Profile();
         profile.addAttribute("Sozial", 7);
@@ -151,6 +151,8 @@ public class HierarchyTests {
         headSub.setJob(headSubJob);
         head.addSubortinate(headSub);
         assertEquals("Head's sub should be best job", headSubJob, hierarchy.getBestJob(profile));
+    }
+
     @Test
     public void T08_GetTable_WithoutFreePositions(){
         Hierarchy hierarchy = new Hierarchy();

@@ -67,13 +67,13 @@ public class HierarchyTests {
     public void T05_PersonList_Complex(){
         Hierarchy hierarchy = new Hierarchy();
         Position head = new Position();
-        Person headPerson = new Person("Test1","Test", new Date(), "Test", "Test", 1, "Test", "Test", "Test", "Test", new Profile());
+        Person headPerson = new Person("Head","Test", new Date(), "Test", "Test", 1, "Test", "Test", "Test", "Test", new Profile());
         head.setPerson(headPerson);
         Position headSub = new Position();
-        Person headSubPerson = new Person("Test2","Test", new Date(), "Test", "Test", 1, "Test", "Test", "Test", "Test", new Profile());
+        Person headSubPerson = new Person("HeadSub","Test", new Date(), "Test", "Test", 1, "Test", "Test", "Test", "Test", new Profile());
         headSub.setPerson(headSubPerson);
         Position headSub2 = new Position();
-        Person headSub2Person = new Person("Test3","Test", new Date(), "Test", "Test", 1, "Test", "Test", "Test", "Test", new Profile());
+        Person headSub2Person = new Person("HeadSub2","Test", new Date(), "Test", "Test", 1, "Test", "Test", "Test", "Test", new Profile());
         headSub2.setPerson(headSub2Person);
         hierarchy.setHead(head);
         head.addSubordinate(headSub);
@@ -84,7 +84,7 @@ public class HierarchyTests {
         expected.add(headSub2Person);
         assertEquals("List should be like expected", expected, hierarchy.personList());
         Position headSubSub = new Position();
-        Person headSubSubPerson = new Person("Test4","Test", new Date(), "Test", "Test", 1, "Test", "Test", "Test", "Test", new Profile());
+        Person headSubSubPerson = new Person("HeadSubSub","Test", new Date(), "Test", "Test", 1, "Test", "Test", "Test", "Test", new Profile());
         headSubSub.setPerson(headSubSubPerson);
         headSub.addSubordinate(headSubSub);
         expected.add(2, headSubSubPerson);
@@ -151,5 +151,47 @@ public class HierarchyTests {
         headSub.setJob(headSubJob);
         head.addSubortinate(headSub);
         assertEquals("Head's sub should be best job", headSubJob, hierarchy.getBestJob(profile));
+    @Test
+    public void T08_GetTable_WithoutFreePositions(){
+        Hierarchy hierarchy = new Hierarchy();
+        assertEquals("Hierarchy should be empty", "Hierarchie leer\n", hierarchy.getTable());
+        Position head = new Position();
+        Person headPerson = new Person("Head","Test", new Date(), "Test", "Test", 1, "Test", "Test", "Test", "Test", new Profile());
+        head.setPerson(headPerson);
+        hierarchy.setHead(head);
+        String expected = "1 Head\n";
+        assertEquals("Table should contain head only", expected, hierarchy.getTable());
+        Position headSub = new Position();
+        Person headSubPerson = new Person("HeadSub","Test", new Date(), "Test", "Test", 1, "Test", "Test", "Test", "Test", new Profile());
+        headSub.setPerson(headSubPerson);
+        head.addSubordinate(headSub);
+        expected += "2 HeadSub\n";
+        Position headSub2 = new Position();
+        Person headSub2Person = new Person("HeadSub2","Test", new Date(), "Test", "Test", 1, "Test", "Test", "Test", "Test", new Profile());
+        headSub2.setPerson(headSub2Person);
+        head.addSubordinate(headSub2);
+        expected += "2 HeadSub2\n";
+        assertEquals("Table should be like expected", expected,hierarchy.getTable());
+        Position headSubSub = new Position();
+        Person headSubSubPerson = new Person("HeadSubSub","Test", new Date(), "Test", "Test", 1, "Test", "Test", "Test", "Test", new Profile());
+        headSubSub.setPerson(headSubSubPerson);
+        headSub.addSubordinate(headSubSub);
+        expected = "1 Head\n2 HeadSub\n3 HeadSubSub\n2 HeadSub2\n";
+        assertEquals("Expanded table should be like expected", expected, hierarchy.getTable());
+    }
+
+    @Test
+    public void T09_GetTable_WithFreePositions(){
+        Hierarchy hierarchy = new Hierarchy();
+        Position head = new Position();
+        hierarchy.setHead(head);
+        Position headSub = new Position();
+        head.addSubordinate(headSub);
+        Position headSub2 = new Position();
+        head.addSubordinate(headSub2);
+        Position headSubSub = new Position();
+        headSub.addSubordinate(headSubSub);
+        String expected = "1 Frei\n2 Frei\n3 Frei\n2 Frei\n";
+        assertEquals("Table should be like expected", expected, hierarchy.getTable());
     }
 }

@@ -75,6 +75,24 @@ public class Position {
         return allSubordinatePersons;
     }
 
+    public String getAllSubordinateTables(int level){
+        if(subordinates == null){
+            return "";
+        }
+        String table = "";
+        for(Position position : subordinates){
+            table += level + " " + position.getTableLine() + position.getAllSubordinateTables(level + 1);
+        }
+        return table;
+    }
+
+    public String getTableLine(){
+        if(person == null){
+            return "Frei\n";
+        }
+        return person.getLastName() + '\n';
+    }
+
     /**
      * Adds a subordinate to the list.
      * @param subordinate

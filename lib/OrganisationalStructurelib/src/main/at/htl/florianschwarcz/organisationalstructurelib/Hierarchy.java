@@ -105,4 +105,11 @@ public class Hierarchy {
         }
         return bestJob;
     }
+
+    public String getTable(){
+        if(head == null){
+            return "Hierarchie leer\n";
+        }
+        return "1 " + head.getTableLine() + head.getAllSubordinateTables(2);
+    }
 }

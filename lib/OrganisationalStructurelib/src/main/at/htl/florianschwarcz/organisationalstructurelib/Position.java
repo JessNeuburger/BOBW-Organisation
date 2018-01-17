@@ -17,8 +17,27 @@ public class Position {
     private Job job;
     private List<Position> subordinates;
     private List<Staff> staff;
+    private Position superordinate;
 
     public Position() {
+    }
+    public Position(Person person){
+        this.person = person;
+    }
+    public Position(Job job){
+        this.job = job;
+    }
+    public Position(Person person, Job job){
+        this.person = person;
+        this.job = job;
+    }
+
+    public Position getSuperordinate(){
+        return superordinate;
+    }
+
+    public void setSuperordinate(Position superordinate){
+        this.superordinate = superordinate;
     }
 
     public List<Staff> getStaff(){
@@ -33,7 +52,20 @@ public class Position {
         if(this.staff == null){
             this.staff = new LinkedList<>();
         }
+        staff.setSuperordinate(this);
         this.staff.add(staff);
+    }
+
+    /**
+     * Adds a list of staff to the list.
+     * @param staff
+     */
+    public void addStaff(List<Staff> staff){
+        if(this.staff == null){
+            this.staff = new LinkedList<>();
+        }
+        staff.forEach(s -> s.setSuperordinate(this));
+        this.staff.addAll(staff);
     }
 
     public List<Position> getSubordinates() {
@@ -101,13 +133,25 @@ public class Position {
         if(subordinates == null){
             subordinates = new LinkedList<>();
         }
+        subordinate.setSuperordinate(this);
         subordinates.add(subordinate);
+    }
+
+    /**
+     * Adds a list of subordinates to the list.
+     * @param subordinates
+     */
+    public void addSubordinates(List<Position> subordinates){
+        if(subordinates == null){
+            subordinates = new LinkedList<>();
+        }
+        subordinates.forEach(s -> s.setSuperordinate(this));
+        this.subordinates.addAll(subordinates);
     }
 
     public Person getPerson(){
         return person;
     }
-
     public void setPerson(Person person) {
         this.person = person;
     }
@@ -115,7 +159,6 @@ public class Position {
     public Job getJob(){
         return job;
     }
-
     public void setJob(Job job){
         this.job = job;
     }

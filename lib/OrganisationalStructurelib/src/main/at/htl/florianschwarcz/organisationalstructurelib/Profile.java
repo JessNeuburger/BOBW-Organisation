@@ -22,19 +22,41 @@ public class Profile {
     }
 
     /**
-     * Adds a new attribute to the list.
+     * Adds a new attribute to the set or updates the value if it already exists.
      * @param name
      * @param value
-     * @return True if successfully added, false if already in list.
      */
-    public boolean addAttribute(String name, int value){
+    public void addAttribute(String name, int value){
         if(attributes == null){
             attributes = new HashMap<>();
         }
-        else if(attributes.containsKey(name)){
-            return false;
+        if(attributes.containsKey(name)){
+            changeValue(name, value);
+            return;
         }
         attributes.put(name, value);
+    }
+
+    /**
+     * Adds some attributes to the set.
+     * @param name
+     * @param value
+     * @return False if name and value have different lengths.
+     */
+    public boolean addAttributes(String[] name, int[] value){
+        if(name.length != value.length){
+            return false;
+        }
+        if(attributes == null){
+            attributes = new HashMap<>();
+        }
+        for(int i = 0; i < name.length; i++){
+            if(attributes.containsKey(name[i])){
+                changeValue(name[i], value[i]);
+            }else{
+                attributes.put(name[i], value[i]);
+            }
+        }
         return true;
     }
 
@@ -42,7 +64,7 @@ public class Profile {
      * Changes the value of an existing attribute.
      * @param name
      * @param value
-     * @return True if successfully changed, false if not in list.
+     * @return True if successfully changed, false if not in set.
      */
     public boolean changeValue(String name, int value){
         if(attributes == null){
@@ -57,9 +79,9 @@ public class Profile {
     }
 
     /**
-     * Returns the value of an existing attribute.
+     * Returns the value of an attribute.
      * @param name
-     * @return Value of the attribute, -1 if not in list.
+     * @return Value of the attribute, -1 if not in set.
      */
     public int getValue(String name){
         if(attributes == null){
@@ -74,12 +96,12 @@ public class Profile {
 
     /**
      * Compares two profiles using the difference of
-     * all attributes.
+     * all attributes which are in both sets.
      * @param p1
      * @param p2
      * @return
      */
-    public static int compareProfiles(Profile p1, Profile p2){
+    public static int compareProfilesSoft(Profile p1, Profile p2){
         int score = 0;
         for(String key : p1.getAttributes().keySet()){
             if(p2.getValue(key) != -1){

@@ -25,6 +25,9 @@ public class Hierarchy {
 
     public Hierarchy() {
     }
+    public Hierarchy(Position head){
+        this.head = head;
+    }
     
     public Position getHead() {
         return head;
@@ -74,8 +77,8 @@ public class Hierarchy {
         Person bestPerson = null;
         int bestScore = 0;
         for(Person person : personList()){
-            if(bestPerson == null || Profile.compareProfiles(person.getProfile(), profile) > bestScore) {
-                bestScore = Profile.compareProfiles(person.getProfile(), profile);
+            if(bestPerson == null || Profile.compareProfilesSoft(person.getProfile(), profile) > bestScore) {
+                bestScore = Profile.compareProfilesSoft(person.getProfile(), profile);
                 bestPerson = person;
             }
         }
@@ -93,9 +96,9 @@ public class Hierarchy {
         boolean bestJobIsAllLower = false;
         int bestPoints = 0;
         for(Position position : positionList()){
-            if(bestJob == null || Profile.compareProfiles(profile, position.getJob().getProfile()) > bestPoints) {
-                bestPoints = Profile.compareProfiles(position.getJob().getProfile(), profile);
-                if(!(bestJobIsAllLower && Profile.compareProfiles(position.getJob().getProfile(), bestJob.getProfile()) > 0)) {
+            if(bestJob == null || Profile.compareProfilesSoft(profile, position.getJob().getProfile()) > bestPoints) {
+                bestPoints = Profile.compareProfilesSoft(position.getJob().getProfile(), profile);
+                if(!(bestJobIsAllLower && Profile.compareProfilesSoft(position.getJob().getProfile(), bestJob.getProfile()) > 0)) {
                     bestJob = position.getJob();
                 }
                 if(Profile.compareAllHigherOrEqual(profile, bestJob.getProfile()) == 1){

@@ -118,7 +118,7 @@ public class HierarchyTests {
         headSubJobProfile.addAttribute("Datenbanken", 10);
         Person headSubPerson = new Person("Test2","Test", new Date(), "Test", "Test", 1, "Test", "Test", "Test", "Test", headSubJobProfile);
         headSub.setPerson(headSubPerson);
-        head.addSubortinate(headSub);
+        head.addSubordinate(headSub);
         assertEquals("Head's sub should be best person", headSubPerson, hierarchy.getBestPerson(profile));
     }
 
@@ -149,7 +149,7 @@ public class HierarchyTests {
         headSubJobProfile.addAttribute("Datenbanken", 7);
         Job headSubJob = new Job("Test2", headSubJobProfile);
         headSub.setJob(headSubJob);
-        head.addSubortinate(headSub);
+        head.addSubordinate(headSub);
         assertEquals("Head's sub should be best job", headSubJob, hierarchy.getBestJob(profile));
     }
 

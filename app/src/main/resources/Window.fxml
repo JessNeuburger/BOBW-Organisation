@@ -20,17 +20,17 @@
         <tabs>
           <Tab text="Organigramm">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <OrganizationChart></OrganizationChart>
             </content>
           </Tab>
           <Tab text="HR">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <HumanResources></HumanResources>
             </content>
           </Tab>
             <Tab text="Stellen">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <Positions></Positions>
               </content>
             </Tab>
         </tabs>

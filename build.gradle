@@ -1,6 +1,16 @@
 apply plugin: 'application'
 
 allprojects{
+    buildscript {
+        dependencies {
+            classpath group: 'de.dynamicfiles.projects.gradle.plugins', name: 'javafx-gradle-plugin', version: '8.8.2'
+        }
+
+        repositories {
+            mavenLocal()
+            mavenCentral()
+        }
+    }
     apply plugin: 'java'
 
     repositories {
@@ -12,7 +22,9 @@ allprojects{
 
     sourceSets {
         main.java.srcDirs = ['src/main']
+        main.resources.srcDirs = ['src/main/resources']
         test.java.srcDirs = ['src/test']
+        test.resources.srcDirs = ['src/test/resources']
     }
 }
 

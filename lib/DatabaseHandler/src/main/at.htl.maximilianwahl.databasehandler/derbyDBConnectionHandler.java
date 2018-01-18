@@ -56,7 +56,59 @@ public class derbyDBConnectionHandler {
             }
             p.setProfile(prof);
         }
+        //Joberinos
+        ArrayList<Job> jobs = getJobs();
+        //
+    }
 
+    private ArrayList<Job> getJobs() throws SQLException {
+        ArrayList<Integer> ids = new ArrayList<>();
+        ArrayList<String> names = new ArrayList<>();
+        ArrayList<Job> res = new ArrayList<>();
+        try {
+            stmt = conn.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        ResultSet rs = null;
+        try {
+            rs = stmt.executeQuery("Select * from Job");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        while(rs.next()){
+            ids.add(rs.getInt("JobId"));
+            names.add(rs.getString("name"));
+        }
+        int i = 0;
+        for (Integer id:ids){
+            Profile prof = new Profile();
+            HashMap<String,Integer> attributes = getJobValues(id);
+            for (String s: attributes.keySet() ) {
+                prof.addAttribute(s,attributes.get(s));
+            }
+            res.add(new Job(names.get(i++),prof));
+        }
+        return res;
+    }
+
+    private HashMap<String,Integer> getJobValues(Integer id) throws SQLException {
+        HashMap<String,Integer> result= new HashMap<>();
+        try {
+            stmt = conn.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        ResultSet rs = null;
+        try {
+            rs = stmt.executeQuery("Select a.name,av.value from Attribute a,AttributeValue av WHERE av.JobId = a.JobId AND JobId = "+String.valueOf(id));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        while(rs.next()){
+            result.put(rs.getString(1),rs.getInt(2));
+        }
+        return result;
     }
 
     private HashMap<String,Integer> getPersonValues(int id) throws SQLException {

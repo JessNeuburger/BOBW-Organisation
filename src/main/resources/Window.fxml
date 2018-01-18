@@ -13,23 +13,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1100.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1100.0" prefWidth="1600.0" style="-fx-border-width: 400 px;" styleClass="window.css" stylesheets="@window.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <TabPane tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="TOP_LEFT">
+      <TabPane stylesheets="@window.css" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="TOP_LEFT">
         <tabs>
-          <Tab text="Organigramm">
+          <Tab id="orgtab" styleClass="window.css" text="Organigramm">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane id="orgtabpane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@window.css" />
             </content>
           </Tab>
-          <Tab text="HR">
+          <Tab id="hrtab" text="HR">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane id="hrtabpane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@window.css" />
             </content>
           </Tab>
-            <Tab text="Stellen">
+            <Tab id="stellentab" text="Stellen">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane id="stellentabpane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
             </Tab>
         </tabs>
@@ -42,7 +42,7 @@
      <fx:include source="HrList.fxml" />
    </left>
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
+      <MenuBar id="windowmenubar" stylesheets="@window.css" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>

@@ -3,6 +3,12 @@ package at.htl.florianschwarcz.workflowmanagementlib;
 public class Workflow {
     private Start start;
 
+    public Workflow(){
+    }
+    public Workflow(Start start) {
+        this.start = start;
+    }
+
     public Start getStart() {
         return start;
     }
@@ -12,12 +18,13 @@ public class Workflow {
 
     public boolean isComplete(){
         Token token = new Token(start);
-        while(!token.getState().contains(null)){
-            token.getState().forEach(s -> token.proceed(s));
-            if(token.getState().size() == 0){
-                return true;
+        while(token.getState().size() > 0){
+            for(int i = token.getState().size() - 1; i >= 0; i--){
+                if(!token.proceed((Element)token.getState().toArray()[i])) {
+                    return false;
+                }
             }
         }
-        return false;
+        return true;
     }
 }

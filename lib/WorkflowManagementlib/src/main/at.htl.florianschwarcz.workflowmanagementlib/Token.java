@@ -21,16 +21,28 @@ public class Token {
         this.result = result;
     }
 
-    public void proceed(Element state){
+    public boolean proceed(Element state){
         this.state.remove(state);
         if(state instanceof End){
             this.state.remove(state);
         }else if(state instanceof SingleNextElement){
+            if(((SingleNextElement)state).getNext() == null){
+                return false;
+            }
             this.state.add(((SingleNextElement)state).getNext());
         }else if(state instanceof Fork){
+            for(Element element : ((MultipleNextElement)state).getNext()){
+                if(element == null){
+                    return false;
+                }
+            }
             this.state.addAll(((MultipleNextElement)state).getNext());
         }else if(state instanceof Branch){
+            if(((Branch)state).getNext(result) == null){
+                return false;
+            }
             this.state.add(((Branch)state).getNext(result));
         }
+        return true;
     }
 }

@@ -13,9 +13,20 @@ import java.util.List;
  * @author Florian Schwarcz
  */
 public class Hierarchy {
+    private static Hierarchy instance;
+    public static Hierarchy getInstance(){
+        if(instance == null){
+            instance = new Hierarchy();
+        }
+        return instance;
+    }
+
     private Position head;
 
     public Hierarchy() {
+    }
+    public Hierarchy(Position head){
+        this.head = head;
     }
     
     public Position getHead() {
@@ -64,10 +75,10 @@ public class Hierarchy {
      */
     public Person getBestPerson(Profile profile){
         Person bestPerson = null;
-        int bestPoints = 0;
+        int bestScore = 0;
         for(Person person : personList()){
-            if(bestPerson == null || Profile.compareProfiles(person.getProfile(), profile) > bestPoints) {
-                bestPoints = Profile.compareProfiles(person.getProfile(), profile);
+            if(bestPerson == null || Profile.compareProfilesSoft(person.getProfile(), profile) > bestScore) {
+                bestScore = Profile.compareProfilesSoft(person.getProfile(), profile);
                 bestPerson = person;
             }
         }
@@ -82,13 +93,26 @@ public class Hierarchy {
      */
     public Job getBestJob(Profile profile){
         Job bestJob = null;
+        boolean bestJobIsAllLower = false;
         int bestPoints = 0;
         for(Position position : positionList()){
-            if(bestJob == null || Profile.compareProfiles(profile, position.getJob().getProfile()) > bestPoints) {
-                bestPoints = Profile.compareProfiles(position.getJob().getProfile(), profile);
-                bestJob = position.getJob();
+            if(bestJob == null || Profile.compareProfilesSoft(profile, position.getJob().getProfile()) > bestPoints) {
+                bestPoints = Profile.compareProfilesSoft(position.getJob().getProfile(), profile);
+                if(!(bestJobIsAllLower && Profile.compareProfilesSoft(position.getJob().getProfile(), bestJob.getProfile()) > 0)) {
+                    bestJob = position.getJob();
+                }
+                if(Profile.compareAllHigherOrEqual(profile, bestJob.getProfile()) == 1){
+                    bestJobIsAllLower = true;
+                }
             }
         }
         return bestJob;
+    }
+
+    public String getTable(){
+        if(head == null){
+            return "Hierarchie leer\n";
+        }
+        return "1 " + head.getTableLine() + head.getAllSubordinateTables(2);
     }
 }

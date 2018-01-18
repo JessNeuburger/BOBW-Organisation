@@ -20,6 +20,9 @@ public class Job{
         this.profile = profile;
     }
 
+    public Job() {
+    }
+
     public String getName() {
         return name;
     }

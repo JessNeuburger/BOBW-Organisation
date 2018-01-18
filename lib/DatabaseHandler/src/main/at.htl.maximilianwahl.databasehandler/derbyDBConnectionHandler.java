@@ -58,7 +58,107 @@ public class derbyDBConnectionHandler {
         }
         //Joberinos
         ArrayList<Job> jobs = getJobs();
-        //
+        //Positions
+        ArrayList<Position> positions = getPos(jobs,persons);
+        for (Position pos:positions) {
+            pos.addSubordinates(getSubordinates(pos,positions));
+            pos.addStaff(getStaff(pos,positions));
+        }
+        hierarchy.setHead(positions.stream().filter((p)->p.getSuperordinate() == null).findFirst().get());
+    }
+
+    private List<Staff> getStaff(Position pos, ArrayList<Position> positions) throws SQLException {
+        int id = pos.hashCode();
+        ArrayList<Staff> res = new ArrayList<>();
+        ResultSet rs = null;
+        try {
+            rs = stmt.executeQuery("Select slave from Relation where master ="+id+"AND type = 'staff'");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        while(rs.next()){
+            try {
+                int slave =rs.getInt("slave");
+                res.add((Staff)(positions.stream().filter((p)->p.hashCode() ==slave ).findFirst().get()));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+        }
+        return res;
+    }
+
+    private List<Position> getSubordinates(Position pos,ArrayList<Position> positions) throws SQLException {
+        int id = pos.hashCode();
+        ArrayList<Position> res = new ArrayList<>();
+        ResultSet rs = null;
+        try {
+            rs = stmt.executeQuery("Select slave from Relation where master ="+id+"AND type = 'subordinate'");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        while(rs.next()){
+            try {
+                int slave =rs.getInt("slave");
+                res.add(positions.stream().filter((p)->p.hashCode() ==slave ).findFirst().get());
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+        }
+        return res;
+    }
+
+    private ArrayList<Position> getPos(ArrayList<Job> jobs,ArrayList<Person> persons) throws SQLException {
+        ArrayList<Position> res = new ArrayList<>();
+        try {
+            stmt = conn.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        ResultSet rs = null;
+        try {
+            rs = stmt.executeQuery("Select * from Position");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        while(rs.next()){
+            try {
+                int jobId = rs.getInt("jobId");
+                int personId= rs.getInt("PersonId");
+                Position pos =new Position();
+                pos.setJob(jobs.stream().filter((job) -> jobId ==job.hashCode() ).findFirst().get());
+                pos.setPerson(persons.stream().filter((person)->personId==person.getDBKey()).findFirst().get());
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+        }
+        return res;
+    }
+
+    private ArrayList<Integer> getPosIds() throws SQLException {
+        ArrayList<Integer> ids = new ArrayList<>();
+        try {
+            stmt = conn.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        ResultSet rs = null;
+        try {
+            rs = stmt.executeQuery("Select PositionId from Position");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        while(rs.next()){
+            try {
+                ids.add(rs.getInt(1));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+        }
+        return ids;
     }
 
     private ArrayList<Job> getJobs() throws SQLException {
@@ -204,6 +304,10 @@ public class derbyDBConnectionHandler {
 
         }
 
+    }
+
+    public void commit() throws SQLException {
+        conn.commit();
     }
 }
 

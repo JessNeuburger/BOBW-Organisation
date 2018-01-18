@@ -1,19 +1,13 @@
 package at.htl.florianschwarcz.workflowmanagementlib;
 
-public class Activity extends Element{
-    Element next;
+public class Activity extends SingleNextElement{
     String description;
 
     public Activity() {
         description = "";
     }
-
-    public Element getNext() {
-        return next;
-    }
-
-    public void setNext(Element next) {
-        this.next = next;
+    public Activity(String description){
+        this.description = description;
     }
 
     public String getDescription() {

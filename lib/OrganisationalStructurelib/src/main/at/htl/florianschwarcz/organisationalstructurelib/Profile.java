@@ -112,6 +112,26 @@ public class Profile {
     }
 
     /**
+     * Compares two profiles using the differenct of all
+     * attributes, if p2 does not contain an attribute of p1
+     * the score is decrased by the value of p2.
+     * @param p1
+     * @param p2
+     * @return
+     */
+    public static int compareProfilesHard(Profile p1, Profile p2){
+        int score = 0;
+        for(String key : p1.getAttributes().keySet()){
+            if(p2.getValue(key) != -1) {
+                score += p1.getValue(key) - p2.getValue(key);
+            }else{
+                score -= p2.getValue(key);
+            }
+        }
+        return score;
+    }
+
+    /**
      * Compares two profiles and returns which only has
      * higher attributes.
      * @param p1

@@ -96,9 +96,9 @@ public class Hierarchy {
         boolean bestJobIsAllLower = false;
         int bestPoints = 0;
         for(Position position : positionList()){
-            if(bestJob == null || Profile.compareProfilesSoft(profile, position.getJob().getProfile()) > bestPoints) {
-                bestPoints = Profile.compareProfilesSoft(position.getJob().getProfile(), profile);
-                if(!(bestJobIsAllLower && Profile.compareProfilesSoft(position.getJob().getProfile(), bestJob.getProfile()) > 0)) {
+            if(bestJob == null || Profile.compareProfilesHard(profile, position.getJob().getProfile()) > bestPoints) {
+                bestPoints = Profile.compareProfilesHard(position.getJob().getProfile(), profile);
+                if(!(bestJobIsAllLower && Profile.compareProfilesHard(position.getJob().getProfile(), bestJob.getProfile()) > 0)) {
                     bestJob = position.getJob();
                 }
                 if(Profile.compareAllHigherOrEqual(profile, bestJob.getProfile()) == 1){

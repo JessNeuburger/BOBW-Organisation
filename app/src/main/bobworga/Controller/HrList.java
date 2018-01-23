@@ -4,6 +4,7 @@ import at.htl.florianschwarcz.organisationalstructurelib.Person;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 
@@ -24,6 +25,7 @@ public class HrList extends VBox{
             e.printStackTrace();
         }
         System.out.println(hrListView);
+        //hrListView.setCellFactory(p -> (return new ListCell<Person>();        ));
         hrListView.setItems(FXCollections.observableList(BoBwController.getHierarchyInstance().personList()));
     }
 

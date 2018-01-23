@@ -67,42 +67,42 @@ public class App extends Application {
 
             x.bind(centerXProperty());
             y.bind(centerYProperty());
-            enableDrag();
+            enaprivate void enableDrag() {
+                final Delta dragDelta = new Delta();
+                setOnMousePressed(mouseEvent -> {
+                    // record a delta distance for the drag and drop operation.
+                    dragDelta.x = getCenterX() - mouseEvent.getX();
+                    dragDelta.y = getCenterY() - mouseEvent.getY();
+                    getScene().setCursor(Cursor.MOVE);
+                });
+                setOnMouseReleased(mouseEvent -> getScene().setCursor(Cursor.HAND));
+                setOnMouseDragged(mouseEvent -> {
+                    double newX = mouseEvent.getX() + dragDelta.x;
+                    if (newX > 0 && newX < getScene().getWidth()) {
+                        setCenterX(newX);
+                    }
+                    double newY = mouseEvent.getY() + dragDelta.y;
+                    if (newY > 0 && newY < getScene().getHeight()) {
+                        setCenterY(newY);
+                    }
+                });
+                setOnMouseEntered(mouseEvent -> {
+                    if (!mouseEvent.isPrimaryButtonDown()) {
+                        getScene().setCursor(Cursor.HAND);
+                    }
+                });
+                setOnMouseExited(mouseEvent -> {
+                    if (!mouseEvent.isPrimaryButtonDown()) {
+                        getScene().setCursor(Cursor.DEFAULT);
+                    }
+                });
+            }
+
+            // records relative x and y co-ordinates.
+            private class Delta { double x, y; }bleDrag();
         }
 
         // make a node movable by dragging it around with the mouse.
-        private void enableDrag() {
-            final Delta dragDelta = new Delta();
-            setOnMousePressed(mouseEvent -> {
-                // record a delta distance for the drag and drop operation.
-                dragDelta.x = getCenterX() - mouseEvent.getX();
-                dragDelta.y = getCenterY() - mouseEvent.getY();
-                getScene().setCursor(Cursor.MOVE);
-            });
-            setOnMouseReleased(mouseEvent -> getScene().setCursor(Cursor.HAND));
-            setOnMouseDragged(mouseEvent -> {
-                double newX = mouseEvent.getX() + dragDelta.x;
-                if (newX > 0 && newX < getScene().getWidth()) {
-                    setCenterX(newX);
-                }
-                double newY = mouseEvent.getY() + dragDelta.y;
-                if (newY > 0 && newY < getScene().getHeight()) {
-                    setCenterY(newY);
-                }
-            });
-            setOnMouseEntered(mouseEvent -> {
-                if (!mouseEvent.isPrimaryButtonDown()) {
-                    getScene().setCursor(Cursor.HAND);
-                }
-            });
-            setOnMouseExited(mouseEvent -> {
-                if (!mouseEvent.isPrimaryButtonDown()) {
-                    getScene().setCursor(Cursor.DEFAULT);
-                }
-            });
-        }
 
-        // records relative x and y co-ordinates.
-        private class Delta { double x, y; }
     }
 }

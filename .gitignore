@@ -29,6 +29,8 @@ hs_err_pid*
 
 # User-specific stuff:
 .idea
+.idea/modules.xml
+.idea/workspace.xml
 
 # Gradle
 build/
@@ -36,3 +38,5 @@ build/
 gradle-app.setting
 !gradle-wrapper.jar
 .gradletasknamecache
+
+myDB/

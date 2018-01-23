@@ -25,9 +25,13 @@ public class OrganigramPane extends ScrollPane {
 
     private DoubleProperty centerPos;
 
-    public OrganigramPane(OrganigramController controller) {
-        controller.setOrganigramPane(this);
-        this.controller = controller;
+    public OrganigramPane(OrganigramController controller){
+        this();
+
+        setController(controller);
+    }
+
+    public OrganigramPane() {
 
         StackPane centerPane = new StackPane();
         centerPane.setPrefSize(StackPane.USE_COMPUTED_SIZE,StackPane.USE_COMPUTED_SIZE);
@@ -41,6 +45,11 @@ public class OrganigramPane extends ScrollPane {
         setPannable(true);
 
         centerPos = new SimpleDoubleProperty(0);
+    }
+
+    public void setController(OrganigramController controller) {
+        this.controller = controller;
+        controller.setOrganigramPane(this);
     }
 
     public OrganigramController getController() {

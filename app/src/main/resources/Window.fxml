@@ -1,36 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import bobworga.Controller.*?>
 
-<BorderPane fx:id="mainWindowPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<?import bobworga.Controller.*?>
+<BorderPane fx:id="mainWindowPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <TabPane tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="TOP_LEFT">
         <tabs>
           <Tab text="Organigramm">
             <content>
-                <OrganizationChart></OrganizationChart>
+                <OrganizationChart />
             </content>
           </Tab>
           <Tab text="HR">
             <content>
-                <HumanResources></HumanResources>
+                <HumanResources />
             </content>
           </Tab>
             <Tab text="Stellen">
               <content>
-                <Positions></Positions>
+                <Positions />
               </content>
             </Tab>
         </tabs>
@@ -61,6 +56,6 @@
       </MenuBar>
    </top>
     <left>
-        <HrList fx:id="hrList"></HrList>
+        <HrList fx:id="hrList" />
     </left>
 </BorderPane>

@@ -1,10 +1,17 @@
 package at.htl.erikmayrhofer.organigrampane;
 
+import at.htl.florianschwarcz.organisationalstructurelib.Hierarchy;
 import at.htl.florianschwarcz.organisationalstructurelib.Position;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
 public class OrganigramChildController extends OrganigramRootBasedController {
+
+    @Override
+    public void setHierarchy(Hierarchy hierarchy) {
+        super.setHierarchy(hierarchy);
+        setRootPosition(hierarchy.getHead());
+    }
 
     @Override
     protected void populateFromNode(Position p, PosPane parentPane){

@@ -1,10 +1,13 @@
 package bobworga.Controller;
 
 import at.htl.florianschwarcz.organisationalstructurelib.*;
+import bobworga.utilclass.PersonClickEvent;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
 
 import java.net.URL;
@@ -16,6 +19,10 @@ public class BoBwController implements Initializable{
     private BorderPane mainWindowPane;
     @FXML
     private HrList hrList;
+    @FXML
+    private TabPane tabPane;
+    @FXML
+    private HumanResources humanResourcesTab;
 
     private static Hierarchy hierarchyInstance;
 
@@ -80,8 +87,11 @@ public class BoBwController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        System.out.println("BobwController Created");
+        hrList.setOnPersonDoubleClicked(personClickEvent -> tabPane.getSelectionModel().select(1));
 
-     }
+        humanResourcesTab.setHrListReference(hrList);
+    }
 
     private static Person createPerson(String firstname, String lastname){
         return new Person(

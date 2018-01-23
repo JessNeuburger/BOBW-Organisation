@@ -61,7 +61,6 @@ public class OrganigramPane extends ScrollPane {
     }
 
     void relayout(){
-        System.out.println("=-=-=-Relayout-=-=-=");
         ArrayList<TreeLayer> spaces = new ArrayList<>();
 
 

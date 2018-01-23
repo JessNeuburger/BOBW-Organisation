@@ -6,6 +6,9 @@ import javafx.scene.layout.BorderPane;
 import java.io.IOException;
 
 public class HumanResources extends BorderPane{
+
+    private HrList hrListReference;
+
     public HumanResources(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Tabs/HumanResources.fxml"));
         loader.setController(this);
@@ -13,8 +16,15 @@ public class HumanResources extends BorderPane{
         try {
             loader.load();
         } catch (IOException e) {
-            System.out.println("BLUP");
             e.printStackTrace();
         }
+
+        hrListReference.getHrListView().getSelectionModel().selectedItemProperty();
+        //TODO Here
+    }
+
+
+    public void setHrListReference(HrList hrListReference) {
+        this.hrListReference = hrListReference;
     }
 }

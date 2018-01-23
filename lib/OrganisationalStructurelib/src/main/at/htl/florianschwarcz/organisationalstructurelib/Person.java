@@ -5,6 +5,8 @@
  */
 package at.htl.florianschwarcz.organisationalstructurelib;
 
+import javafx.beans.property.SimpleStringProperty;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
@@ -14,59 +16,90 @@ import java.util.Objects;
  * @author Florian Schwarcz
  */
 public class Person{
-    private String lastName;
-    private String firstName;
+
+    private SimpleStringProperty lastName;
+    private SimpleStringProperty firstName;
     private Date birthDate;
-    private String birthCity;
-    private String street;
-    private String number;
-    private String city;
-    private String zipCode;
-    private String email;
-    private String socialSecurityNumber;
+
+    private SimpleStringProperty birthCity;
+    private SimpleStringProperty street;
+    private SimpleStringProperty number;
+
+    private SimpleStringProperty city;
+    private SimpleStringProperty zipCode;
+
+    private SimpleStringProperty email;
+    private SimpleStringProperty socialSecurityNumber;
     private Profile profile;
 
     public Person(String lastName, String firstName, Date birthDate, String birthCity, String street, String number, String city, String zipCode, String email, String socialSecurityNumber, Profile profile) {
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.birthDate = birthDate;
-        this.birthCity = birthCity;
-        this.street = street;
-        this.number = number;
-        this.city = city;
-        this.zipCode = zipCode;
-        this.email = email;
-        this.socialSecurityNumber = socialSecurityNumber;
+        this(lastName, firstName, birthDate, birthCity, street, number, city, zipCode, email, socialSecurityNumber);
         this.profile = profile;
     }
 
     public Person(String lastName, String firstName, Date birthDate, String birthCity, String street, String number, String city, String zipCode, String email, String socialSecurityNumber) {
-        this.lastName = lastName;
-        this.firstName = firstName;
+        this.lastName = new SimpleStringProperty(lastName);
+        this.firstName = new SimpleStringProperty(firstName);
         this.birthDate = birthDate;
-        this.birthCity = birthCity;
-        this.street = street;
-        this.number = number;
-        this.city = city;
-        this.zipCode = zipCode;
-        this.email = email;
-        this.socialSecurityNumber = socialSecurityNumber;
+        this.birthCity = new SimpleStringProperty(birthCity);
+        this.street = new SimpleStringProperty(street);
+        this.number = new SimpleStringProperty(number);
+        this.city = new SimpleStringProperty(city);
+        this.zipCode = new SimpleStringProperty(zipCode);
+        this.email = new SimpleStringProperty(email);
+        this.socialSecurityNumber = new SimpleStringProperty(socialSecurityNumber);
     }
 
-    public String getLastName() {
-        return lastName;
+    public SimpleStringProperty birthCityProperty() {
+        return birthCity;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public SimpleStringProperty cityProperty() {
+        return city;
     }
 
-    public String getFirstName() {
+    public SimpleStringProperty emailProperty() {
+        return email;
+    }
+
+    public SimpleStringProperty firstNameProperty() {
         return firstName;
     }
 
+    public SimpleStringProperty lastNameProperty() {
+        return lastName;
+    }
+
+    public SimpleStringProperty numberProperty() {
+        return number;
+    }
+
+    public SimpleStringProperty socialSecurityNumberProperty() {
+        return socialSecurityNumber;
+    }
+
+    public SimpleStringProperty streetProperty() {
+        return street;
+    }
+
+    public SimpleStringProperty zipCodeProperty() {
+        return zipCode;
+    }
+
+    public String getLastName() {
+        return lastName.get();
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName.set(lastName);
+    }
+
+    public String getFirstName() {
+        return firstName.get();
+    }
+
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.firstName.set(firstName);
     }
 
     public Date getBirthDate() {
@@ -74,55 +107,55 @@ public class Person{
     }
 
     public String getBirthCity() {
-        return birthCity;
+        return birthCity.get();
     }
 
     public String getStreet() {
-        return street;
+        return street.get();
     }
 
     public void setStreet(String street) {
-        this.street = street;
+        this.street.set(street);
     }
 
     public String getNumber() {
-        return number;
+        return number.get();
     }
 
     public void setNumber(String number) {
-        this.number = number;
+        this.number.set(number);
     }
 
     public String getCity() {
-        return city;
+        return city.get();
     }
 
     public void setCity(String city) {
-        this.city = city;
+        this.city.setValue(city);
     }
 
     public String getZipCode() {
-        return zipCode;
+        return zipCode.get();
     }
 
     public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
+        this.zipCode.setValue(zipCode);
     }
 
     public String getEmail() {
-        return email;
+        return email.get();
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email.setValue(email);
     }
 
     public String getSocialSecurityNumber() {
-        return socialSecurityNumber;
+        return socialSecurityNumber.get();
     }
 
     public void setSocialSecurityNumber(String socialSecurityNumber) {
-        this.socialSecurityNumber = socialSecurityNumber;
+        this.socialSecurityNumber.set(socialSecurityNumber);
     }
 
     public Profile getProfile() {

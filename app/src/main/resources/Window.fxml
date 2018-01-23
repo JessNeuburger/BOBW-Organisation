@@ -61,6 +61,6 @@
       </MenuBar>
    </top>
     <left>
-        <HrList></HrList>
+        <HrList fx:id="hrList"></HrList>
     </left>
 </BorderPane>

@@ -16,3 +16,7 @@ jfx {
     vendor = 'Jan Neuburger'
     verbose = true
 }
+
+dependencies{
+    compile project(":lib_OrganisationalStructurelib")
+}

@@ -8,7 +8,7 @@
 
 <fx:root id="HRBox" style="-fx-background-color: #123;" type="VBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ListView id="HRList" VBox.vgrow="ALWAYS" />
+      <ListView fx:id="hrListView" id="HRList" VBox.vgrow="ALWAYS" />
       <Button id="AddButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="+" />
    </children>
 </fx:root>

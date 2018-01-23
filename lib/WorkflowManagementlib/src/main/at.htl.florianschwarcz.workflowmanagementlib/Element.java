@@ -1,4 +1,4 @@
 package at.htl.florianschwarcz.workflowmanagementlib;
 
-public class Element {
+public abstract class Element {
 }

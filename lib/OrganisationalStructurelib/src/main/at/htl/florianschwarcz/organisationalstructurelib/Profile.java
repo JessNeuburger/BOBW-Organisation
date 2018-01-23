@@ -5,13 +5,14 @@
  */
 package at.htl.florianschwarcz.organisationalstructurelib;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
  *
  * @author Florian Schwarcz
  */
-public class Profile {
+public class Profile{
     private HashMap<String, Integer> attributes;
     
     public Profile(){

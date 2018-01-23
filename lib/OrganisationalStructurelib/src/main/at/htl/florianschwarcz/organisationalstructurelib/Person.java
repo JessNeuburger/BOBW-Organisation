@@ -5,26 +5,28 @@
  */
 package at.htl.florianschwarcz.organisationalstructurelib;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  *
  * @author Florian Schwarcz
  */
-public class Person {
+public class Person{
     private String lastName;
     private String firstName;
     private Date birthDate;
     private String birthCity;
     private String street;
-    private int number;
+    private String number;
     private String city;
     private String zipCode;
     private String email;
     private String socialSecurityNumber;
     private Profile profile;
 
-    public Person(String lastName, String firstName, Date birthDate, String birthCity, String street, int number, String city, String zipCode, String email, String socialSecurityNumber, Profile profile) {
+    public Person(String lastName, String firstName, Date birthDate, String birthCity, String street, String number, String city, String zipCode, String email, String socialSecurityNumber, Profile profile) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.birthDate = birthDate;
@@ -36,6 +38,19 @@ public class Person {
         this.email = email;
         this.socialSecurityNumber = socialSecurityNumber;
         this.profile = profile;
+    }
+
+    public Person(String lastName, String firstName, Date birthDate, String birthCity, String street, String number, String city, String zipCode, String email, String socialSecurityNumber) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.birthDate = birthDate;
+        this.birthCity = birthCity;
+        this.street = street;
+        this.number = number;
+        this.city = city;
+        this.zipCode = zipCode;
+        this.email = email;
+        this.socialSecurityNumber = socialSecurityNumber;
     }
 
     public String getLastName() {
@@ -70,11 +85,11 @@ public class Person {
         this.street = street;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
@@ -116,5 +131,10 @@ public class Person {
 
     public void setProfile(Profile profile) {
         this.profile = profile;
+    }
+
+    public int getDBKey() {
+
+        return Objects.hash(getLastName(), getFirstName(), getBirthDate(), getBirthCity(), getStreet(), getNumber(), getCity(), getZipCode(), getEmail(), getSocialSecurityNumber());
     }
 }

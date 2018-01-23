@@ -109,6 +109,10 @@ public class Hierarchy {
         return bestJob;
     }
 
+    /**
+     * Returns a table containing all persons or free if no one is assigned to a position.
+     * @return
+     */
     public String getTable(){
         if(head == null){
             return "Hierarchie leer\n";

@@ -7,6 +7,7 @@ package at.htl.florianschwarcz.organisationalstructurelib;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -161,5 +162,21 @@ public class Position {
     }
     public void setJob(Job job){
         this.job = job;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Position)) return false;
+        Position position = (Position) o;
+        return Objects.equals(getPerson(), position.getPerson()) &&
+                Objects.equals(getJob(), position.getJob()) &&
+                Objects.equals(getSuperordinate(), position.getSuperordinate());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getPerson(), getJob(), getSuperordinate());
     }
 }

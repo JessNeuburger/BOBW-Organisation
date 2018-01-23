@@ -184,9 +184,8 @@ public class HierarchyTests {
 
     @Test
     public void T09_GetTable_WithFreePositions(){
-        Hierarchy hierarchy = new Hierarchy();
         Position head = new Position();
-        hierarchy.setHead(head);
+        Hierarchy hierarchy = new Hierarchy(head);
         Position headSub = new Position();
         head.addSubordinate(headSub);
         Position headSub2 = new Position();

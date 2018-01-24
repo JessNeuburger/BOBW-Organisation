@@ -1,5 +1,6 @@
 package at.htl.erikmayrhofer.organigrampane;
 
+import at.htl.florianschwarcz.organisationalstructurelib.Position;
 import javafx.beans.binding.DoubleBinding;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ReadOnlyDoubleProperty;
@@ -23,12 +24,17 @@ public class PosPane extends HBox {
     private IntegerProperty childLength;
     private OrganigramPane organigramPane;
     private String name;
+    private Position position;
 
-    public PosPane(PosPane parentPos, Node child, String name) {
-        this(parentPos.organigramPane, child, name);
+    public Position getPosition() {
+        return position;
     }
 
-    public PosPane(OrganigramPane organigramPane, Node child, String name) {
+    public PosPane(PosPane parentPos, Node child, String name, Position position) {
+        this(parentPos.organigramPane, child, name, position);
+    }
+
+    public PosPane(OrganigramPane organigramPane, Node child, String name, Position position) {
 
         //TODO This does not belong here
         this.setStyle("-fx-background-color: lightgray;");
@@ -36,7 +42,7 @@ public class PosPane extends HBox {
         this.getChildren().add(child);
         this.childPos = new ArrayList<>();
         this.organigramPane = organigramPane;
-
+        this.position = position;
         this.setPrefWidth(POS_PANE_WIDTH);
         this.setMaxWidth(POS_PANE_WIDTH);
         this.setMinWidth(POS_PANE_WIDTH);

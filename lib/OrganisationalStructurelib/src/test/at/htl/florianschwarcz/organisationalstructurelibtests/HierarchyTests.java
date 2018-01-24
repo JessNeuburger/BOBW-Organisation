@@ -154,7 +154,38 @@ public class HierarchyTests {
     }
 
     @Test
-    public void T08_GetTable_WithoutFreePositions(){
+    public void T08_GetBestJob() {
+        Hierarchy hierarchy = new Hierarchy();
+        Profile profile = new Profile();
+        profile.addAttribute("Sozial", 7);
+        profile.addAttribute("Handwerk", 5);
+        profile.addAttribute("Datenbanken", 8);
+        profile.addAttribute("Buchhaltung", 10);
+        assertNull("Best Job should be null", hierarchy.getBestJob(profile));
+        Position head = new Position();
+        Profile headJobProfile = new Profile();
+        hierarchy.setHead(head);
+        headJobProfile.addAttribute("Sozial", 5);
+        headJobProfile.addAttribute("Handwerk", 5);
+        headJobProfile.addAttribute("Programmieren", 10);
+        headJobProfile.addAttribute("Datenbanken", 10);
+        Job headJob = new Job("Test1", headJobProfile);
+        head.setJob(headJob);
+        assertEquals("Head should be best job", headJob, hierarchy.getBestJob(profile));
+        Position headSub = new Position();
+        Profile headSubJobProfile = new Profile();
+        headSubJobProfile.addAttribute("Sozial", 6);
+        headSubJobProfile.addAttribute("Handwerk", 3);
+        headSubJobProfile.addAttribute("Datenbanken", 7);
+        headSubJobProfile.addAttribute("Buchhaltung", 8);
+        Job headSubJob = new Job("Test2", headSubJobProfile);
+        headSub.setJob(headSubJob);
+        head.addSubordinate(headSub);
+        assertEquals("Head's sub should be best job", headSubJob, hierarchy.getBestJob(profile));
+    }
+
+    @Test
+    public void T09_GetTable_WithoutFreePositions(){
         Hierarchy hierarchy = new Hierarchy();
         assertEquals("Hierarchy should be empty", "Hierarchie leer\n", hierarchy.getTable());
         Position head = new Position();
@@ -183,7 +214,7 @@ public class HierarchyTests {
     }
 
     @Test
-    public void T09_GetTable_WithFreePositions(){
+    public void T10_GetTable_WithFreePositions(){
         Position head = new Position();
         Hierarchy hierarchy = new Hierarchy(head);
         Position headSub = new Position();

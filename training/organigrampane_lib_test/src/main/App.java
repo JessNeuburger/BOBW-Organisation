@@ -97,7 +97,7 @@ public final class App extends Application {
                 new Date(),
                 "None",
                 "Bla",
-                3,
+                "3",
                 "Linz",
                 "3020",
                 "bla@gm.co",

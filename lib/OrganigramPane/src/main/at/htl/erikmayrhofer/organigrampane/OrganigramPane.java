@@ -25,9 +25,13 @@ public class OrganigramPane extends ScrollPane {
 
     private DoubleProperty centerPos;
 
-    public OrganigramPane(OrganigramController controller) {
-        controller.setOrganigramPane(this);
-        this.controller = controller;
+    public OrganigramPane(OrganigramController controller){
+        this();
+
+        setController(controller);
+    }
+
+    public OrganigramPane() {
 
         StackPane centerPane = new StackPane();
         centerPane.setPrefSize(StackPane.USE_COMPUTED_SIZE,StackPane.USE_COMPUTED_SIZE);
@@ -43,6 +47,11 @@ public class OrganigramPane extends ScrollPane {
         centerPos = new SimpleDoubleProperty(0);
     }
 
+    public void setController(OrganigramController controller) {
+        this.controller = controller;
+        controller.setOrganigramPane(this);
+    }
+
     public OrganigramController getController() {
         return controller;
     }
@@ -52,7 +61,6 @@ public class OrganigramPane extends ScrollPane {
     }
 
     void relayout(){
-        System.out.println("=-=-=-Relayout-=-=-=");
         ArrayList<TreeLayer> spaces = new ArrayList<>();
 
 
@@ -112,10 +120,15 @@ public class OrganigramPane extends ScrollPane {
     }
 
     void setRoot(PosPane rootPane){
-        if(this.head != null) throw new IllegalStateException("Root is already set.");
+        if(this.head != null) throw new IllegalStateException("Root is already set. call reset first");
         //rootPane.layoutXProperty().bind(offsetPosProperty());
         this.head = rootPane;
         dragPane.getChildren().add(rootPane);
+    }
+
+    void reset(){
+        this.head = null;
+        dragPane.getChildren().clear();
     }
 
     void stageLine(Line l){

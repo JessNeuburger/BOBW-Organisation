@@ -12,7 +12,9 @@ def includeLibrary(name) {
 }
 
 rootProject.name = 'BOBW-Organisation'
-
+include "app"
+project(":app").projectDir = file("app")
+project(":app").name = "app"
 
 
 //Training Projects
@@ -24,6 +26,7 @@ includeLibrary 'OrganisationalStructurelib'
 includeLibrary 'DatabaseHandler'
 includeLibrary 'WorkflowManagementlib'
 includeLibrary 'OrganigramPane'
+includeLibrary 'OrganisationalStructureComponents'
 includeTraining 'exampleTraining'
 includeTraining 'javafx_mayrhofer'
 includeTraining 'javafx_organigram_demo'

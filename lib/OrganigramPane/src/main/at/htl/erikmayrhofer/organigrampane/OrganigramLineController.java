@@ -5,15 +5,23 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
 public class OrganigramLineController extends OrganigramRootBasedController {
+    public OrganigramLineController(OrganigramNodeFactory factory) {
+        super(factory);
+    }
+
     @Override
     protected void populateFromNode(Position p, PosPane parentPane){
 
-
         PosPane lineParent = createPosPaneFromPosition(parentPane, p.getSuperordinate());
-        pane.setRoot(lineParent);
+        pane.reset();
+        if(lineParent != null)
+            pane.setRoot(lineParent);
 
         PosPane thisPane = createPosPaneFromPosition(lineParent, p);
-        lineParent.addPos(thisPane);
+        if(lineParent != null)
+            lineParent.addPos(thisPane);
+        else
+            pane.setRoot(thisPane);
 
         if(p.getSubordinates() != null) {
             for (Position sub : p.getSubordinates()) {
@@ -25,10 +33,13 @@ public class OrganigramLineController extends OrganigramRootBasedController {
     }
 
     private PosPane createPosPaneFromPosition(PosPane parent, Position p){
+        if(p == null) return null;
+        /*
         VBox content = new VBox();
         content.getChildren().addAll(
                 new Label(p.getJob().getName()),
                 new Label(p.getPerson().getFirstName() + " " + p.getPerson().getLastName()));
-        return new PosPane(pane,content,p.getJob().getName());
+                */
+        return new PosPane(pane,createOrganigramNode(p),p.getJob().getName());
     }
 }

@@ -11,4 +11,5 @@ public interface OrganigramController {
     void setHierarchy(Hierarchy hierarchy);
 
     void setRootPosition(Position pos);
+    //TODO maybe property for root pos
 }

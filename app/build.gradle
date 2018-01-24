@@ -1,0 +1,24 @@
+buildscript {
+    dependencies {
+        classpath group: 'de.dynamicfiles.projects.gradle.plugins', name: 'javafx-gradle-plugin', version: '8.8.2'
+    }
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
+apply plugin: 'javafx-gradle-plugin'
+
+dependencies{
+    compile project(":lib_OrganisationalStructurelib")
+    compile project(":lib_OrganigramPane")
+    compile project(":lib_OrganisationalStructureComponents")
+}
+
+jfx {
+    mainClass = 'bobworga.main.App'
+    vendor = 'Jan Neuburger'
+    verbose = true
+}

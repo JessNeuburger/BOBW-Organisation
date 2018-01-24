@@ -1,0 +1,34 @@
+
+def includeTraining(name) {
+    include name
+    project(":"+name).projectDir = file("training/"+name)
+    project(":"+name).name = "training_"+project(":"+name).name
+}
+
+def includeLibrary(name) {
+    include name
+    project(":"+name).projectDir = file("lib/"+name)
+    project(":"+name).name = "lib_"+project(":"+name).name
+}
+
+rootProject.name = 'BOBW-Organisation'
+include "app"
+project(":app").projectDir = file("app")
+project(":app").name = "app"
+
+
+//Training Projects
+//includeTraining 'Gradle_Demo'
+
+includeLibrary 'examplelib'
+includeLibrary 'WorkflowManagementlib'
+includeLibrary 'OrganisationalStructurelib'
+includeLibrary 'DatabaseHandler'
+includeLibrary 'WorkflowManagementlib'
+includeLibrary 'OrganigramPane'
+includeLibrary 'OrganisationalStructureComponents'
+includeTraining 'exampleTraining'
+includeTraining 'javafx_mayrhofer'
+includeTraining 'javafx_organigram_demo'
+includeTraining 'javafx_cubiccurve_demo'
+includeTraining 'organigrampane_lib_test'

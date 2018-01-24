@@ -1,0 +1,4 @@
+dependencies{
+    compile project(":lib_OrganisationalStructurelib")
+    compile project(":lib_OrganisationalStructureComponents")
+}

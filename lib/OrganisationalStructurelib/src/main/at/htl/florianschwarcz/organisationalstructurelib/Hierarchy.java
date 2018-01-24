@@ -5,14 +5,21 @@
  */
 package at.htl.florianschwarcz.organisationalstructurelib;
 
+
+import javafx.geometry.Pos;
+
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  *
  * @author Florian Schwarcz
  */
-public class Hierarchy {
+public class Hierarchy extends Observable{
+
+
     private static Hierarchy instance;
     public static Hierarchy getInstance(){
         if(instance == null){
@@ -26,6 +33,7 @@ public class Hierarchy {
     public Hierarchy() {
     }
     public Hierarchy(Position head){
+        this();
         this.head = head;
     }
     
@@ -118,5 +126,16 @@ public class Hierarchy {
             return "Hierarchie leer\n";
         }
         return "1 " + head.getTableLine() + head.getAllSubordinateTables(2);
+    }
+
+    public void invalidate(){
+        setChanged();
+        notifyObservers();
+    }
+
+    public List<Position> getAllPositions() {
+        List<Position> list = head.getAllSubordinatePositions();
+        list.add(head);
+        return list;
     }
 }

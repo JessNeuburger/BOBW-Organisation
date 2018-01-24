@@ -5,6 +5,11 @@
  */
 package at.htl.florianschwarcz.organisationalstructurelib;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
@@ -14,34 +19,46 @@ import java.util.Objects;
  * @author Florian Schwarcz
  */
 public class Position {
-    private Person person;
-    private Job job;
-    private List<Position> subordinates;
-    private List<Staff> staff;
-    private Position superordinate;
+    private ObjectProperty<Person> person;
+    private ObjectProperty<Job> job;
+    private ObservableList<Position> subordinates;
+    private ObservableList<Staff> staff;
+    private ObjectProperty<Position> superordinate;
 
     public Position() {
+        person = new SimpleObjectProperty<>();
+        job = new SimpleObjectProperty<>();
+        subordinates = FXCollections.observableArrayList();
+        staff = FXCollections.observableArrayList();
+        superordinate = new SimpleObjectProperty<>();
     }
     public Position(Person person){
-        this.person = person;
+        this();
+        setPerson(person);
     }
     public Position(Job job){
-        this.job = job;
+        this();
+        setJob(job);
     }
     public Position(Person person, Job job){
-        this.person = person;
-        this.job = job;
+        this();
+        setPerson(person);
+        setJob(job);
     }
 
     public Position getSuperordinate(){
-        return superordinate;
+        return superordinate.get();
     }
 
     public void setSuperordinate(Position superordinate){
-        this.superordinate = superordinate;
+        this.superordinate.set(superordinate);
     }
 
-    public List<Staff> getStaff(){
+    public ObjectProperty<Position> superordinateProperty() {
+        return superordinate;
+    }
+
+    public ObservableList<Staff> getStaff(){
         return staff;
     }
 
@@ -50,11 +67,8 @@ public class Position {
      * @param staff
      */
     public void addStaff(Staff staff){
-        if(this.staff == null){
-            this.staff = new LinkedList<>();
-        }
         staff.setSuperordinate(this);
-        this.staff.add(staff);
+        this.getStaff().add(staff);
     }
 
     /**
@@ -62,11 +76,8 @@ public class Position {
      * @param staff
      */
     public void addStaff(List<Staff> staff){
-        if(this.staff == null){
-            this.staff = new LinkedList<>();
-        }
         staff.forEach(s -> s.setSuperordinate(this));
-        this.staff.addAll(staff);
+        this.getStaff().addAll(staff);
     }
 
     public List<Position> getSubordinates() {
@@ -78,11 +89,11 @@ public class Position {
      * @return List of all subordinates
      */
     public List<Position> getAllSubordinatePositions(){
-        if(subordinates == null){
+        if(getSubordinates().size() == 0){
             return new LinkedList<>();
         }
         List<Position> allSubordinatePositions = new LinkedList<>();
-        for(Position subordinate : subordinates){
+        for(Position subordinate : getSubordinates()){
             allSubordinatePositions.add(subordinate);
             allSubordinatePositions.addAll(subordinate.getAllSubordinatePositions());
         }
@@ -95,11 +106,11 @@ public class Position {
      * @return List of all subordinate persons
      */
     public List<Person> getAllSubordinatePersons(){
-        if(subordinates == null){
+        if(getSubordinates().size() == 0){
             return new LinkedList<>();
         }
         List<Person> allSubordinatePersons = new LinkedList<>();
-        for(Position subordinate : subordinates){
+        for(Position subordinate : getSubordinates()){
             if(subordinate.getPerson() != null){
                 allSubordinatePersons.add(subordinate.getPerson());
             }
@@ -109,21 +120,21 @@ public class Position {
     }
 
     public String getAllSubordinateTables(int level){
-        if(subordinates == null){
+        if(getSubordinates() == null){
             return "";
         }
         String table = "";
-        for(Position position : subordinates){
+        for(Position position : getSubordinates()){
             table += level + " " + position.getTableLine() + position.getAllSubordinateTables(level + 1);
         }
         return table;
     }
 
     public String getTableLine(){
-        if(person == null){
+        if(getPerson() == null){
             return "Frei\n";
         }
-        return person.getLastName() + '\n';
+        return getPerson().getLastName() + '\n';
     }
 
     /**
@@ -131,9 +142,6 @@ public class Position {
      * @param subordinate
      */
     public void addSubordinate(Position subordinate){
-        if(subordinates == null){
-            subordinates = new LinkedList<>();
-        }
         subordinate.setSuperordinate(this);
         subordinates.add(subordinate);
     }
@@ -151,18 +159,26 @@ public class Position {
     }
 
     public Person getPerson(){
-        return person;
+        return person.get();
     }
     public void setPerson(Person person) {
-        this.person = person;
+        this.person.set(person);
         person.setPosition(this);
     }
 
+    public ObjectProperty<Person> personProperty() {
+        return person;
+    }
+
     public Job getJob(){
-        return job;
+        return job.get();
     }
     public void setJob(Job job){
-        this.job = job;
+        this.job.set(job);
+    }
+
+    public ObjectProperty<Job> jobProperty() {
+        return job;
     }
 
     @Override
@@ -177,7 +193,6 @@ public class Position {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(getPerson(), getJob(), getSuperordinate());
     }
 }

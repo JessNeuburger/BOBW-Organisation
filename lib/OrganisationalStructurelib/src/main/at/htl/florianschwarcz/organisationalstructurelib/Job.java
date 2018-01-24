@@ -5,6 +5,9 @@
  */
 package at.htl.florianschwarcz.organisationalstructurelib;
 
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -13,31 +16,39 @@ import java.util.Objects;
  * @author Florian Schwarcz
  */
 public class Job{
-    private String name;
-    private Profile profile;
+    private SimpleStringProperty name;
+    private SimpleObjectProperty<Profile> profile;
     
     public Job(String name, Profile profile){
-        this.name = name;
-        this.profile = profile;
+        this.name = new SimpleStringProperty(name);
+        this.profile = new SimpleObjectProperty<>(profile);
     }
 
     public Job() {
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Profile getProfile() {
+    public SimpleObjectProperty<Profile> profileProperty() {
         return profile;
     }
 
+    public SimpleStringProperty nameProperty() {
+        return name;
+    }
+
+    public String getName() {
+        return name.get();
+    }
+
+    public void setName(String name) {
+        this.name.set(name);
+    }
+
+    public Profile getProfile() {
+        return profile.get();
+    }
+
     public void setProfile(Profile profile) {
-        this.profile = profile;
+        this.profile.set(profile);
     }
 
     @Override

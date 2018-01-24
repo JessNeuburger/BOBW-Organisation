@@ -4,7 +4,10 @@ import at.htl.florianschwarcz.organisationalstructurelib.Hierarchy;
 import at.htl.florianschwarcz.organisationalstructurelib.Position;
 import javafx.scene.Node;
 
-public abstract class OrganigramControllerAdapter implements OrganigramController {
+import java.util.Observable;
+import java.util.Observer;
+
+public abstract class OrganigramControllerAdapter implements OrganigramController, Observer{
     private Hierarchy hierarchy;
     protected OrganigramPane pane;
     private OrganigramNodeFactory factory;
@@ -25,7 +28,11 @@ public abstract class OrganigramControllerAdapter implements OrganigramControlle
 
     @Override
     public void setHierarchy(Hierarchy hierarchy) {
+        if(this.hierarchy != null)
+            this.hierarchy.deleteObserver(this);
         this.hierarchy = hierarchy;
+        if(this.hierarchy != null)
+            this.hierarchy.addObserver(this);
     }
 
     public OrganigramNodeFactory getFactory() {
@@ -38,5 +45,10 @@ public abstract class OrganigramControllerAdapter implements OrganigramControlle
 
     protected Node createOrganigramNode(Position position){
         return factory.createOrganigramNode(position);
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        invalidate();
     }
 }

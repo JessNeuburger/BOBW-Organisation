@@ -5,6 +5,8 @@ import at.htl.florianschwarcz.organisationalstructurelib.Position;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
+import java.util.UUID;
+
 public class OrganigramChildController extends OrganigramRootBasedController {
 
     public OrganigramChildController(OrganigramNodeFactory factory) {
@@ -33,13 +35,6 @@ public class OrganigramChildController extends OrganigramRootBasedController {
     }
 
     private PosPane createPosPaneFromPosition(PosPane parent, Position p){
-        /*
-        VBox content = new VBox();
-
-        content.getChildren().addAll(
-                new Label(p.getJob().getName()),
-                new Label(p.getPerson().getFirstName() + " " + p.getPerson().getLastName()));*/
-
-        return new PosPane(pane,createOrganigramNode(p),p.getJob().getName());
+        return new PosPane(pane,createOrganigramNode(p), UUID.randomUUID().toString(), p);
     }
 }

@@ -5,20 +5,25 @@
  */
 package at.htl.florianschwarcz.organisationalstructurelib;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableMap;
+
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
  * @author Florian Schwarcz
  */
 public class Profile{
-    private HashMap<String, Integer> attributes;
-    
+    private ObservableMap<String, Integer> attributes;
+
     public Profile(){
+        this.attributes = FXCollections.observableHashMap();
     }
 
-    public HashMap<String, Integer> getAttributes(){
+    public Map<String, Integer> getAttributes(){
         return attributes;
     }
 
@@ -28,9 +33,6 @@ public class Profile{
      * @param value
      */
     public void addAttribute(String name, int value){
-        if(attributes == null){
-            attributes = new HashMap<>();
-        }
         if(attributes.containsKey(name)){
             changeValue(name, value);
             return;
@@ -47,9 +49,6 @@ public class Profile{
     public boolean addAttributes(String[] name, int[] value){
         if(name.length != value.length){
             return false;
-        }
-        if(attributes == null){
-            attributes = new HashMap<>();
         }
         for(int i = 0; i < name.length; i++){
             if(attributes.containsKey(name[i])){
@@ -104,9 +103,30 @@ public class Profile{
      */
     public static int compareProfilesSoft(Profile p1, Profile p2){
         int score = 0;
+
         for(String key : p1.getAttributes().keySet()){
             if(p2.getValue(key) != -1){
                 score += p1.getValue(key) - p2.getValue(key);
+            }
+        }
+        return score;
+    }
+
+    /**
+     * Compares two profiles using the differenct of all
+     * attributes, if p2 does not contain an attribute of p1
+     * the score is decrased by the value of p2.
+     * @param p1
+     * @param p2
+     * @return
+     */
+    public static int compareProfilesHard(Profile p1, Profile p2){
+        int score = 0;
+        for(String key : p1.getAttributes().keySet()){
+            if(p2.getValue(key) != -1) {
+                score += p1.getValue(key) - p2.getValue(key);
+            }else{
+                score -= p2.getValue(key);
             }
         }
         return score;

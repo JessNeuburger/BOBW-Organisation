@@ -1,8 +1,8 @@
 package bobworga.Controller;
 
 import at.htl.florianschwarcz.organisationalstructurelib.Person;
+import bobworga.model.Repository;
 import bobworga.utilclass.PersonClickEvent;
-import javafx.collections.FXCollections;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -44,7 +44,7 @@ public class HrList extends VBox{
                 };
             }
         });
-        hrListView.setItems(FXCollections.observableList(BoBwController.getHierarchyInstance().personList()));
+        hrListView.setItems(Repository.getInstance().getPersons());
 
     }
 

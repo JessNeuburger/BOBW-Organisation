@@ -1,5 +1,6 @@
 package at.htl.erikmayrhofer.organigrampane;
 
+import at.htl.erikmayrhofer.organisationalstructurecomponents.position.PositionInfo;
 import at.htl.florianschwarcz.organisationalstructurelib.Position;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -11,9 +12,7 @@ public class BasicOrganigramNodeFactory implements OrganigramNodeFactory {
         //TODO CreateOrganigramNode more beautiful
         VBox content = new VBox();
 
-        content.getChildren().addAll(
-                new Label(p.getJob().getName()),
-                new Label(p.getPerson().getFirstName() + " " + p.getPerson().getLastName()));
+        content.getChildren().add(new PositionInfo(p));
         return content;
     }
 }

@@ -5,6 +5,8 @@
  */
 package at.htl.florianschwarcz.organisationalstructurelib;
 
+import javafx.beans.binding.StringBinding;
+import javafx.beans.binding.StringExpression;
 import javafx.beans.property.SimpleStringProperty;
 
 import java.io.Serializable;
@@ -34,6 +36,9 @@ public class Person{
 
     private Position position;
 
+    public Person(String lastName, String firstName, Date birthDate, String birthCity, String street, int number, String city, String zipCode, String email, String socialSecurityNumber, Profile profile) {
+        this(lastName, firstName, birthDate, birthCity, street, ""+number, city, zipCode, email, socialSecurityNumber, profile);
+    }
     public Person(String lastName, String firstName, Date birthDate, String birthCity, String street, String number, String city, String zipCode, String email, String socialSecurityNumber, Profile profile) {
         this(lastName, firstName, birthDate, birthCity, street, number, city, zipCode, email, socialSecurityNumber);
         this.profile = profile;
@@ -166,6 +171,10 @@ public class Person{
 
     public void setSocialSecurityNumber(String socialSecurityNumber) {
         this.socialSecurityNumber.set(socialSecurityNumber);
+    }
+
+    public StringExpression fullNameBinding(){
+        return firstNameProperty().concat(" ").concat(lastNameProperty());
     }
 
     public Profile getProfile() {

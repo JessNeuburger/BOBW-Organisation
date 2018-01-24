@@ -20,7 +20,6 @@ public class Profile{
     private ObservableMap<String, Integer> attributes;
 
     public Profile(){
-        System.out.println("PROFEFLSKIJFÖSEF");
         this.attributes = FXCollections.observableHashMap();
     }
 

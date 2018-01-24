@@ -4,6 +4,8 @@ import at.htl.florianschwarcz.organisationalstructurelib.Position;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
+import java.util.UUID;
+
 public class OrganigramLineController extends OrganigramRootBasedController {
     public OrganigramLineController(OrganigramNodeFactory factory) {
         super(factory);
@@ -40,6 +42,6 @@ public class OrganigramLineController extends OrganigramRootBasedController {
                 new Label(p.getJob().getName()),
                 new Label(p.getPerson().getFirstName() + " " + p.getPerson().getLastName()));
                 */
-        return new PosPane(pane,createOrganigramNode(p),p.getJob().getName());
+        return new PosPane(pane,createOrganigramNode(p), UUID.randomUUID().toString());
     }
 }

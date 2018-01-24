@@ -14,6 +14,7 @@ apply plugin: 'javafx-gradle-plugin'
 dependencies{
     compile project(":lib_OrganisationalStructurelib")
     compile project(":lib_OrganigramPane")
+    compile project(":lib_OrganisationalStructureComponents")
 }
 
 jfx {

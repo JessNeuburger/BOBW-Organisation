@@ -14,8 +14,8 @@ import java.util.List;
 
 public class PosPane extends HBox {
 
-    public static final int POS_PANE_WIDTH = 120;
-    public static final int POS_PANE_HEIGHT = 60;
+    public static final int POS_PANE_WIDTH = 220;
+    public static final int POS_PANE_HEIGHT = 120;
     public static final int POS_PANE_MARGIN_X = 10;
     public static final int POS_PANE_MARGIN_Y = 50;
 

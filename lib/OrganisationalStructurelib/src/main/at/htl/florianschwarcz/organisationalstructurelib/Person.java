@@ -32,6 +32,8 @@ public class Person{
     private SimpleStringProperty socialSecurityNumber;
     private Profile profile;
 
+    private Position position;
+
     public Person(String lastName, String firstName, Date birthDate, String birthCity, String street, String number, String city, String zipCode, String email, String socialSecurityNumber, Profile profile) {
         this(lastName, firstName, birthDate, birthCity, street, number, city, zipCode, email, socialSecurityNumber);
         this.profile = profile;
@@ -48,6 +50,14 @@ public class Person{
         this.zipCode = new SimpleStringProperty(zipCode);
         this.email = new SimpleStringProperty(email);
         this.socialSecurityNumber = new SimpleStringProperty(socialSecurityNumber);
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    void setPosition(Position position) {
+        this.position = position;
     }
 
     public SimpleStringProperty birthCityProperty() {

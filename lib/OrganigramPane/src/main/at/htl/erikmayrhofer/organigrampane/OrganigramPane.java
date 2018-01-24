@@ -120,10 +120,15 @@ public class OrganigramPane extends ScrollPane {
     }
 
     void setRoot(PosPane rootPane){
-        if(this.head != null) throw new IllegalStateException("Root is already set.");
+        if(this.head != null) throw new IllegalStateException("Root is already set. call reset first");
         //rootPane.layoutXProperty().bind(offsetPosProperty());
         this.head = rootPane;
         dragPane.getChildren().add(rootPane);
+    }
+
+    void reset(){
+        this.head = null;
+        dragPane.getChildren().clear();
     }
 
     void stageLine(Line l){

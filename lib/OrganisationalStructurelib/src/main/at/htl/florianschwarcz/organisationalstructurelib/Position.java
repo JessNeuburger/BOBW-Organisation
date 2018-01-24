@@ -155,6 +155,7 @@ public class Position {
     }
     public void setPerson(Person person) {
         this.person = person;
+        person.setPosition(this);
     }
 
     public Job getJob(){

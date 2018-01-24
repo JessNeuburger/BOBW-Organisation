@@ -1,5 +1,6 @@
 package bobworga.Controller;
 
+import at.htl.erikmayrhofer.organigrampane.BasicOrganigramNodeFactory;
 import at.htl.erikmayrhofer.organigrampane.OrganigramChildController;
 import at.htl.erikmayrhofer.organigrampane.OrganigramPane;
 import javafx.fxml.FXML;
@@ -23,7 +24,7 @@ public class OrganizationChart extends AnchorPane{
             e.printStackTrace();
         }
 
-        organigramPane.setController(new OrganigramChildController());
+        organigramPane.setController(new OrganigramChildController(new BasicOrganigramNodeFactory()));
         organigramPane.getController().setHierarchy(BoBwController.getHierarchyInstance());
         
     }

@@ -39,7 +39,7 @@ public class HrList extends VBox{
                     protected void updateItem(Person item, boolean empty) {
                         super.updateItem(item, empty);
                         if(!empty)
-                            setText(item.getFirstName() + " " +item.getLastName());
+                            textProperty().bind(item.firstNameProperty().concat(" ").concat(item.lastNameProperty()));
                     }
                 };
             }

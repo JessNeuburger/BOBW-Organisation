@@ -7,6 +7,10 @@ import javafx.scene.layout.VBox;
 
 public class OrganigramChildController extends OrganigramRootBasedController {
 
+    public OrganigramChildController(OrganigramNodeFactory factory) {
+        super(factory);
+    }
+
     @Override
     public void setHierarchy(Hierarchy hierarchy) {
         super.setHierarchy(hierarchy);
@@ -29,10 +33,13 @@ public class OrganigramChildController extends OrganigramRootBasedController {
     }
 
     private PosPane createPosPaneFromPosition(PosPane parent, Position p){
+        /*
         VBox content = new VBox();
+
         content.getChildren().addAll(
                 new Label(p.getJob().getName()),
-                new Label(p.getPerson().getFirstName() + " " + p.getPerson().getLastName()));
-        return new PosPane(pane,content,p.getJob().getName());
+                new Label(p.getPerson().getFirstName() + " " + p.getPerson().getLastName()));*/
+
+        return new PosPane(pane,createOrganigramNode(p),p.getJob().getName());
     }
 }

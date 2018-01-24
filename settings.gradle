@@ -12,7 +12,9 @@ def includeLibrary(name) {
 }
 
 rootProject.name = 'BOBW-Organisation'
-
+include "app"
+project(":app").projectDir = file("app")
+project(":app").name = "app"
 
 
 //Training Projects

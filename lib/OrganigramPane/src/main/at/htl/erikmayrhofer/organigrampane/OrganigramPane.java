@@ -1,10 +1,13 @@
 package at.htl.erikmayrhofer.organigrampane;
 
+import at.htl.florianschwarcz.organisationalstructurelib.Position;
 import javafx.application.Platform;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Line;
@@ -24,6 +27,9 @@ public class OrganigramPane extends ScrollPane {
     private Pane dragPane;
 
     private DoubleProperty centerPos;
+
+    private EventHandler<PositionClickEvent> posClickHandler;
+
 
     public OrganigramPane(OrganigramController controller){
         this();
@@ -117,6 +123,12 @@ public class OrganigramPane extends ScrollPane {
 
     void stagePos(PosPane pos){
         dragPane.getChildren().addAll(pos);
+        pos.setOnMouseClicked(mouseEvent -> {
+            if(posClickHandler != null){
+                if(mouseEvent.getClickCount() == 2)
+                    posClickHandler.handle(new PositionClickEvent(mouseEvent, pos.getPosition()));
+            }
+        });
     }
 
     void setRoot(PosPane rootPane){
@@ -135,8 +147,8 @@ public class OrganigramPane extends ScrollPane {
         dragPane.getChildren().addAll(l);
     }
 
-    private void setRoot(Node child){
-        setRoot(new PosPane(this,child,"Root"));
+    private void setRoot(Node child, Position pos){
+        setRoot(new PosPane(this,child,"Root", pos));
     }
 
     private double getOffsetPos() {
@@ -149,6 +161,10 @@ public class OrganigramPane extends ScrollPane {
 
     private void setOffsetPos(double centerPos) {
         this.centerPos.set(centerPos);
+    }
+
+    public void setOnPositionDoubleClicked(EventHandler<PositionClickEvent> eventhandler){
+        this.posClickHandler = eventhandler;
     }
 }
 

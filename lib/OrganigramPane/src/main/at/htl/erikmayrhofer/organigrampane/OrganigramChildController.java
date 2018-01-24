@@ -35,15 +35,6 @@ public class OrganigramChildController extends OrganigramRootBasedController {
     }
 
     private PosPane createPosPaneFromPosition(PosPane parent, Position p){
-        /*
-        VBox content = new VBox();
-
-        content.getChildren().addAll(
-                new Label(p.getJob().getName()),
-                new Label(p.getPerson().getFirstName() + " " + p.getPerson().getLastName()));*/
-
-
-
-        return new PosPane(pane,createOrganigramNode(p), UUID.randomUUID().toString());
+        return new PosPane(pane,createOrganigramNode(p), UUID.randomUUID().toString(), p);
     }
 }

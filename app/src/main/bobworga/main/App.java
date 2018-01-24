@@ -1,6 +1,7 @@
 package bobworga.main;
 
 import bobworga.Controller.BoBwController;
+import bobworga.model.Repository;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,6 +18,7 @@ public class App extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        Repository.getInstance().loadData();
         BorderPane borderPane = FXMLLoader.load(getClass().getResource("/Window.fxml"));
         Scene scene = new Scene(borderPane);
         primaryStage.setScene(scene);

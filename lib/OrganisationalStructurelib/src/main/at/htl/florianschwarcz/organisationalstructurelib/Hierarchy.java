@@ -6,6 +6,8 @@
 package at.htl.florianschwarcz.organisationalstructurelib;
 
 
+import javafx.geometry.Pos;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Observable;
@@ -129,5 +131,11 @@ public class Hierarchy extends Observable{
     public void invalidate(){
         setChanged();
         notifyObservers();
+    }
+
+    public List<Position> getAllPositions() {
+        List<Position> list = head.getAllSubordinatePositions();
+        list.add(head);
+        return list;
     }
 }

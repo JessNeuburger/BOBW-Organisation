@@ -59,7 +59,11 @@ public class EditPositionDialog extends BorderPane {
         jobChoice.setItems(Repository.getInstance().getJobs());
 
         List<Person> p = new ArrayList<>(Repository.getInstance().getUnemployed());
-        p.add(position.getPerson());
+        if(position.getPerson()!=null){
+            p.add(position.getPerson());
+        }
+        p.add(0,null);
+
         personChoice.setItems(FXCollections.observableList(p));
 
         List<Position> positions = Repository.getInstance().getPositions();
@@ -81,6 +85,8 @@ public class EditPositionDialog extends BorderPane {
         personChoice.setConverter(new StringConverter<Person>() {
             @Override
             public String toString(Person person) {
+                System.out.println(person);
+                if(person==null)return "no Person";
                 return person.fullNameBinding().getValue();
             }
 
@@ -110,7 +116,9 @@ public class EditPositionDialog extends BorderPane {
             if(onFinishedHandler != null)
                 onFinishedHandler.handle(actionEvent);
         });
-        abortButton.setOnAction(actionEvent -> onFinishedHandler.handle(actionEvent));
+        abortButton.setOnAction(actionEvent -> {
+            if(onFinishedHandler !=null)onFinishedHandler.handle(actionEvent);
+        });
     }
 
     private void save() {

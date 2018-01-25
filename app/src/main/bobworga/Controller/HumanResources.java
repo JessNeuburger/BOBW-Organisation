@@ -63,7 +63,9 @@ public class HumanResources extends BorderPane{
         selectedPerson = new SimpleObjectProperty<>();
 
         organigramPane.setController(new OrganigramLineController(new BasicOrganigramNodeFactory()));
-        selectedPerson.addListener((observableValue, person, t1) -> organigramPane.getController().setRootPosition(t1.getPosition()));
+        selectedPerson.addListener((observableValue, person, t1) -> {
+            if(t1.getPosition()!=null)organigramPane.getController().setRootPosition(t1.getPosition());
+        });
     }
 
 

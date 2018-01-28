@@ -13,9 +13,9 @@
        </VBox>
    </center>
     <left>
-        <VBox>
+        <VBox id="hrlist">
             <ListView fx:id="personListView" VBox.vgrow="ALWAYS" />
-            <Button fx:id="addPersonButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="+" />
+            <Button id="addbutton" fx:id="addPersonButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="+" />
         </VBox>
     </left>
 </fx:root>

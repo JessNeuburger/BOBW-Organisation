@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 
 <?import bobworga.Controller.*?>
-<BorderPane fx:id="mainWindowPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bobworga.Controller.BoBwController">
+<BorderPane fx:id="mainWindowPane" stylesheets="@window.css" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bobworga.Controller.BoBwController">
    <center>
       <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="TOP_LEFT">
         <tabs>

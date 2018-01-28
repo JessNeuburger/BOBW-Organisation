@@ -28,6 +28,11 @@
                 <Positions />
               </content>
             </Tab>
+            <Tab text="Jobs">
+                <content>
+                    <Jobs />
+                </content>
+            </Tab>
         </tabs>
          <BorderPane.margin>
             <Insets />

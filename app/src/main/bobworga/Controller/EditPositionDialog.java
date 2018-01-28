@@ -5,8 +5,6 @@ import at.htl.florianschwarcz.organisationalstructurelib.Person;
 import at.htl.florianschwarcz.organisationalstructurelib.Position;
 import bobworga.model.Repository;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -14,15 +12,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class EditPositionDialog extends BorderPane {
 

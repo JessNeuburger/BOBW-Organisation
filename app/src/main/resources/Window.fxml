@@ -60,7 +60,4 @@
         </menus>
       </MenuBar>
    </top>
-    <left>
-        <HrList fx:id="hrList" />
-    </left>
 </BorderPane>

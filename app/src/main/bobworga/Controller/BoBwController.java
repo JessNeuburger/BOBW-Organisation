@@ -18,16 +18,12 @@ public class BoBwController implements Initializable{
     @FXML
     private BorderPane mainWindowPane;
     @FXML
-    private HrList hrList;
-    @FXML
     private TabPane tabPane;
-    @FXML
-    private HumanResources humanResourcesTab;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        hrList.setOnPersonDoubleClicked(personClickEvent -> tabPane.getSelectionModel().select(1));
-        humanResourcesTab.setHrListReference(hrList);
+        //hrList.setOnPersonDoubleClicked(personClickEvent -> tabPane.getSelectionModel().select(1));
+        //humanResourcesTab.setHrListReference(hrList);
     }
 
 

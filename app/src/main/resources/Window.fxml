@@ -28,6 +28,11 @@
                 <Positions />
               </content>
             </Tab>
+            <Tab text="Jobs">
+                <content>
+                    <Jobs />
+                </content>
+            </Tab>
         </tabs>
          <BorderPane.margin>
             <Insets />
@@ -55,7 +60,4 @@
         </menus>
       </MenuBar>
    </top>
-    <left>
-        <HrList fx:id="hrList" />
-    </left>
 </BorderPane>

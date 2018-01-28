@@ -5,8 +5,6 @@ import at.htl.florianschwarcz.organisationalstructurelib.Person;
 import at.htl.florianschwarcz.organisationalstructurelib.Position;
 import bobworga.model.Repository;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -14,15 +12,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class EditPositionDialog extends BorderPane {
 
@@ -59,7 +54,11 @@ public class EditPositionDialog extends BorderPane {
         jobChoice.setItems(Repository.getInstance().getJobs());
 
         List<Person> p = new ArrayList<>(Repository.getInstance().getUnemployed());
-        p.add(position.getPerson());
+        if(position.getPerson()!=null){
+            p.add(position.getPerson());
+        }
+        p.add(0,null);
+
         personChoice.setItems(FXCollections.observableList(p));
 
         List<Position> positions = Repository.getInstance().getPositions();
@@ -81,6 +80,8 @@ public class EditPositionDialog extends BorderPane {
         personChoice.setConverter(new StringConverter<Person>() {
             @Override
             public String toString(Person person) {
+                System.out.println(person);
+                if(person==null)return "no Person";
                 return person.fullNameBinding().getValue();
             }
 
@@ -110,7 +111,9 @@ public class EditPositionDialog extends BorderPane {
             if(onFinishedHandler != null)
                 onFinishedHandler.handle(actionEvent);
         });
-        abortButton.setOnAction(actionEvent -> onFinishedHandler.handle(actionEvent));
+        abortButton.setOnAction(actionEvent -> {
+            if(onFinishedHandler !=null)onFinishedHandler.handle(actionEvent);
+        });
     }
 
     private void save() {

@@ -8,6 +8,6 @@
 <fx:root type="VBox" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <JobInfo fx:id="jobInfo"/>
-        <Label fx:id="personName" text="[PersonName]"/>
+        <Label fx:id="personName" text="no Person"/>
     </children>
 </fx:root>

@@ -57,6 +57,10 @@ public class PositionInfo extends VBox {
         positionPerson.addListener((observableValue, person, t1) -> {
             if(t1 != null)
                 personName.textProperty().bind(t1.fullNameBinding());
+            else {
+                personName.textProperty().unbind();
+                personName.setText("no Person");
+            }
         });
     }
 

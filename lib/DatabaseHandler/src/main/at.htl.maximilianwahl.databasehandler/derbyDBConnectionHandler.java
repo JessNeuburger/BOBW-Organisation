@@ -1,10 +1,8 @@
 package at.htl.maximilianwahl.databasehandler;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.sql.Date;
+import java.util.*;
 
 import at.htl.florianschwarcz.organisationalstructurelib.*;
 import org.apache.derby.jdbc.EmbeddedDriver;
@@ -15,14 +13,27 @@ public class derbyDBConnectionHandler {
     private static Connection conn = null;
     private static Statement stmt = null;
     private Hierarchy hierarchy = new Hierarchy();
+    private ArrayList<Person> persons;
+    private ArrayList<Job> jobs;
+    private ArrayList<Position> positions;
 
+    public ArrayList<Person> getPersons() {
+        return persons;
+    }
+    public ArrayList<Job> getJobs() {
+        return jobs;
+    }
+    public ArrayList<Position> getPositions() {
+        return positions;
+    }
     public Hierarchy getHierarchy() {
         return hierarchy;
     }
 
+
     public void init() throws SQLException {
         ArrayList<String> fields = new ArrayList<>();
-        fields.addAll(Arrays.asList("PersonId INTEGER","lastName Varchar(20)","firstName Varchar(20)","birthDate date","birthCity varchar(20)","street varchar(20)","number INTEGER","city varchar(20)","zipCode char(4)","email varchar(20)","ssc char(10)","PRIMARY KEY (PersonId)"));
+        fields.addAll(Arrays.asList("PersonId INTEGER","lastName Varchar(20)","firstName Varchar(20)","birthDate date","birthCity varchar(20)","street varchar(20)","number varchar(20)","city varchar(20)","zipCode char(4)","email varchar(20)","ssc char(10)","PRIMARY KEY (PersonId)"));
         runDDLStatement(StatementBuilder.createCreateStatement("Person",(ArrayList<String>) fields));
         fields.clear();
 
@@ -34,11 +45,11 @@ public class derbyDBConnectionHandler {
         runDDLStatement(StatementBuilder.createCreateStatement("Position", (ArrayList<String>) fields));
         fields.clear();
 
-        fields.addAll(Arrays.asList("ProfileId INTEGER","name varchar(20)","PRIMARY KEY (ProfileId)"));
+        fields.addAll(Arrays.asList("AttributeId INTEGER","name varchar(20)","PRIMARY KEY (ProfileId)"));
         runDDLStatement(StatementBuilder.createCreateStatement("Attribute", (ArrayList<String>) fields));
         fields.clear();
 
-        fields.addAll(Arrays.asList("ProfileId INTEGER references attribute","JobId INTEGER references Job","PersonID INTEGER references Person","value INTEGER"));
+        fields.addAll(Arrays.asList("AttributeId INTEGER references attribute","JobId INTEGER references Job","PersonID INTEGER references Person","value INTEGER"));
         runDDLStatement(StatementBuilder.createCreateStatement("AttributeValue", (ArrayList<String>) fields));
         fields.clear();
 
@@ -46,7 +57,7 @@ public class derbyDBConnectionHandler {
         runDDLStatement(StatementBuilder.createCreateStatement("Relation", (ArrayList<String>) fields));
         //retrieve all data
         //Persons
-        ArrayList<Person> persons = getPersons();
+        persons = getPersonsDB();
         for(Person p:persons){
             Profile prof = new Profile();
             int id = p.getDBKey();
@@ -56,17 +67,16 @@ public class derbyDBConnectionHandler {
             }
             p.setProfile(prof);
         }
-        //Joberinos
-        ArrayList<Job> jobs = getJobs();
+        //Jobs
+        jobs = getJobsDB();
         //Positions
-        ArrayList<Position> positions = getPos(jobs,persons);
+        positions = getPosDB(jobs,persons);
         for (Position pos:positions) {
             pos.addSubordinates(getSubordinates(pos,positions));
             pos.addStaff(getStaff(pos,positions));
         }
         hierarchy.setHead(positions.stream().filter((p)->p.getSuperordinate() == null).findFirst().get());
     }
-
     private List<Staff> getStaff(Position pos, ArrayList<Position> positions) throws SQLException {
         int id = pos.hashCode();
         ArrayList<Staff> res = new ArrayList<>();
@@ -87,7 +97,6 @@ public class derbyDBConnectionHandler {
         }
         return res;
     }
-
     private List<Position> getSubordinates(Position pos,ArrayList<Position> positions) throws SQLException {
         int id = pos.hashCode();
         ArrayList<Position> res = new ArrayList<>();
@@ -108,8 +117,7 @@ public class derbyDBConnectionHandler {
         }
         return res;
     }
-
-    private ArrayList<Position> getPos(ArrayList<Job> jobs,ArrayList<Person> persons) throws SQLException {
+    private ArrayList<Position> getPosDB(ArrayList<Job> jobs,ArrayList<Person> persons) throws SQLException {
         ArrayList<Position> res = new ArrayList<>();
         try {
             stmt = conn.createStatement();
@@ -136,7 +144,6 @@ public class derbyDBConnectionHandler {
         }
         return res;
     }
-
     private ArrayList<Integer> getPosIds() throws SQLException {
         ArrayList<Integer> ids = new ArrayList<>();
         try {
@@ -160,8 +167,7 @@ public class derbyDBConnectionHandler {
         }
         return ids;
     }
-
-    private ArrayList<Job> getJobs() throws SQLException {
+    private ArrayList<Job> getJobsDB() throws SQLException {
         ArrayList<Integer> ids = new ArrayList<>();
         ArrayList<String> names = new ArrayList<>();
         ArrayList<Job> res = new ArrayList<>();
@@ -191,7 +197,6 @@ public class derbyDBConnectionHandler {
         }
         return res;
     }
-
     private HashMap<String,Integer> getJobValues(Integer id) throws SQLException {
         HashMap<String,Integer> result= new HashMap<>();
         try {
@@ -210,7 +215,6 @@ public class derbyDBConnectionHandler {
         }
         return result;
     }
-
     private HashMap<String,Integer> getPersonValues(int id) throws SQLException {
         HashMap<String,Integer> result= new HashMap<>();
         try {
@@ -229,8 +233,7 @@ public class derbyDBConnectionHandler {
         }
         return result;
     }
-
-    private ArrayList<Person> getPersons() throws SQLException {
+    private ArrayList<Person> getPersonsDB() throws SQLException {
         ArrayList<Person> result = new ArrayList<>();
         try {
             stmt = conn.createStatement();
@@ -259,18 +262,6 @@ public class derbyDBConnectionHandler {
 
         return result;
     }
-
-    public void openConnection(){
-        try
-        {
-            Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
-            conn = DriverManager.getConnection(dbURL);
-        }
-        catch (Exception except)
-        {
-            except.printStackTrace();
-        }
-    }
     private void runDDLStatement(String statement) throws SQLException {
         try
         {
@@ -284,8 +275,40 @@ public class derbyDBConnectionHandler {
             sqlExcept.printStackTrace();
         }
     }
+    private int getKeyFromAttribute(String key) {
+        Integer[] keys = new Integer[1];
+        try
+        {
+            stmt = conn.createStatement();
+            ResultSet results = stmt.executeQuery("select AttributeId from Attribute where name ="+"'"+key+"'");
 
+            while(results.next())
+            {
+                int id = results.getInt(1);
+                keys[0] = id;
+                //should only be one
+            }
+            results.close();
+            stmt.close();
+        }
+        catch (SQLException sqlExcept)
+        {
+            sqlExcept.printStackTrace();
+        }
+        return keys[0].intValue();
+    }
 
+    public void openConnection(){
+        try
+        {
+            Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+            conn = DriverManager.getConnection(dbURL);
+        }
+        catch (Exception except)
+        {
+            except.printStackTrace();
+        }
+    }
     public void closeConnection(){
         try
         {
@@ -305,9 +328,147 @@ public class derbyDBConnectionHandler {
         }
 
     }
-
     public void commit() throws SQLException {
         conn.commit();
+    }
+
+    //data saving
+    public void savePerson(Person p){
+       java.sql.Date date = new java.sql.Date(p.getBirthDate().getTime());
+        try {
+            stmt = conn.createStatement();
+            stmt.execute("INSERT INTO Person values " +
+                    "("+p.getDBKey()+",'"
+                    +p.getLastName()+"','"
+                    +p.getFirstName()+"','"
+                    +date.toString()+"','"
+                    +p.getBirthCity()+"','"
+                    +p.getStreet()+"','"
+                    +p.getNumber()+"','"
+                    +p.getCity()+"','"
+                    +p.getZipCode()+"','"
+                    +p.getEmail()+"','"
+                    +p.getSocialSecurityNumber()+"')");
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        //TODO save his profile
+        Profile prof = p.getProfile();
+        for (Map.Entry<String, Integer> entry : prof.getAttributes().entrySet()) {
+            String key = entry.getKey();
+            Integer value = entry.getValue();
+            int attribute = getKeyFromAttribute(key);
+            try {
+                stmt = conn.createStatement();
+                stmt.execute("INSERT INTO AttributeValue values " +
+                        "("+attribute+","
+                        +"null"+","
+                        +p.getDBKey()+","
+                        +value+")");
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        try {
+            commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void saveJob(Job j){
+        try {
+            stmt = conn.createStatement();
+            stmt.execute("INSERT INTO Job values " +
+                    "("+j.hashCode()+",'"
+                    +j.getName()+"')");
+
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        //TODO SAVE HIS PROFILE
+        Profile prof = j.getProfile();
+        for (Map.Entry<String, Integer> entry : prof.getAttributes().entrySet()) {
+            String key = entry.getKey();
+            Integer value = entry.getValue();
+            int attribute = getKeyFromAttribute(key);
+            try {
+                stmt = conn.createStatement();
+                stmt.execute("INSERT INTO AttributeValue values " +
+                        "("+attribute+","
+                        +j.hashCode()+","
+                        +"null"+","
+                        +value+")");
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        try {
+            commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void savePosition(Position p){
+        try {
+            stmt = conn.createStatement();
+            stmt.execute("INSERT INTO Position values " +
+                    "("+p.hashCode()+","
+                    +p.getPerson().getDBKey()+","+
+                    +p.getJob().hashCode()+")");
+
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        //TODO SAVE STAFF AND SUBORDINATES
+        for (Staff s:p.getStaff()) {
+            try {
+                stmt = conn.createStatement();
+                stmt.execute("INSERT INTO Relation values " +
+                        "("+p.hashCode()+","
+                        +s.hashCode()+",'staff')");
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        for (Position pos:p.getSubordinates()) {
+            try {
+                stmt = conn.createStatement();
+                stmt.execute("INSERT INTO Relation values " +
+                        "("+p.hashCode()+","
+                        +pos.hashCode()+",'subordinate')");
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        try {
+            commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void newAttribute(String name){
+        try {
+            stmt = conn.createStatement();
+            stmt.execute("INSERT INTO Attribute values " +
+                    "("+name.hashCode()+",'"
+                    +name+"')");
+
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
 

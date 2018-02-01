@@ -53,7 +53,7 @@ public class derbyDBConnectionHandler {
         runDDLStatement(StatementBuilder.createCreateStatement("Position", (ArrayList<String>) fields));
         fields.clear();
 
-        fields.addAll(Arrays.asList("AttributeId INTEGER","name varchar(20)","PRIMARY KEY (ProfileId)"));
+        fields.addAll(Arrays.asList("AttributeId INTEGER","name varchar(20)","PRIMARY KEY (AttributeId)"));
         runDDLStatement(StatementBuilder.createCreateStatement("Attribute", (ArrayList<String>) fields));
         fields.clear();
 
@@ -66,6 +66,9 @@ public class derbyDBConnectionHandler {
         //retrieve all data
         //Persons
         persons = getPersonsDB();
+        if(persons.size() == 0){
+            return;
+        }
         for(Person p:persons){
             Profile prof = new Profile();
             int id = p.getDBKey();

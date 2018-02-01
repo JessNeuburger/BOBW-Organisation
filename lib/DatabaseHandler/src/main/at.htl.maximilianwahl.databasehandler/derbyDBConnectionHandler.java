@@ -333,7 +333,7 @@ public class derbyDBConnectionHandler {
     }
 
     //data saving
-    public void savePerson(Person p){
+    private void savePerson(Person p){
        java.sql.Date date = new java.sql.Date(p.getBirthDate().getTime());
         try {
             stmt = conn.createStatement();
@@ -377,7 +377,36 @@ public class derbyDBConnectionHandler {
             e.printStackTrace();
         }
     }
-    public void saveJob(Job j){
+    private void saveRelation(Position p){
+        for (Staff s:p.getStaff()) {
+            try {
+                stmt = conn.createStatement();
+                stmt.execute("INSERT INTO Relation values " +
+                        "("+p.hashCode()+","
+                        +s.hashCode()+",'staff')");
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        for (Position pos:p.getSubordinates()) {
+            try {
+                stmt = conn.createStatement();
+                stmt.execute("INSERT INTO Relation values " +
+                        "("+p.hashCode()+","
+                        +pos.hashCode()+",'subordinate')");
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        try {
+            commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    private void saveJob(Job j){
         try {
             stmt = conn.createStatement();
             stmt.execute("INSERT INTO Job values " +
@@ -412,7 +441,7 @@ public class derbyDBConnectionHandler {
             e.printStackTrace();
         }
     }
-    public void savePosition(Position p){
+    private void savePosition(Position p){
         try {
             stmt = conn.createStatement();
             stmt.execute("INSERT INTO Position values " +
@@ -424,36 +453,14 @@ public class derbyDBConnectionHandler {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        //TODO SAVE STAFF AND SUBORDINATES
-        for (Staff s:p.getStaff()) {
-            try {
-                stmt = conn.createStatement();
-                stmt.execute("INSERT INTO Relation values " +
-                        "("+p.hashCode()+","
-                        +s.hashCode()+",'staff')");
-                stmt.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        for (Position pos:p.getSubordinates()) {
-            try {
-                stmt = conn.createStatement();
-                stmt.execute("INSERT INTO Relation values " +
-                        "("+p.hashCode()+","
-                        +pos.hashCode()+",'subordinate')");
-                stmt.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+
         try {
             commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    public void newAttribute(String name){
+    private void newAttribute(String name){
         try {
             stmt = conn.createStatement();
             stmt.execute("INSERT INTO Attribute values " +
@@ -466,6 +473,39 @@ public class derbyDBConnectionHandler {
         }
         try {
             commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    private void save(List<Position> pos,List<Person> per,List<Job> jobs){
+        truncate();
+        for (Person p:per){
+            savePerson(p);
+        }
+        for (Job j:jobs) {
+            saveJob(j);
+        }
+        for (Position p:pos) {
+            savePosition(p);
+        }
+        for (Position p:pos) {
+            saveRelation(p);
+        }
+    }
+
+    private void truncate() {
+        truncateTable("Person");
+        truncateTable("Job");
+        truncateTable("Position");
+        truncateTable("AttributeValue");
+        truncateTable("Relation");
+    }
+
+    private void truncateTable(String table) {
+        try {
+            stmt = conn.createStatement();
+            stmt.execute("TRUNCATE TABLE "+table);
+            stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

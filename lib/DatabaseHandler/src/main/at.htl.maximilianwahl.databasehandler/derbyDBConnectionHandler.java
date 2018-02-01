@@ -30,8 +30,16 @@ public class derbyDBConnectionHandler {
         return hierarchy;
     }
 
+    public derbyDBConnectionHandler() {
+        try {
+            init();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
-    public void init() throws SQLException {
+    private void init() throws SQLException {
+        openConnection();
         ArrayList<String> fields = new ArrayList<>();
         fields.addAll(Arrays.asList("PersonId INTEGER","lastName Varchar(20)","firstName Varchar(20)","birthDate date","birthCity varchar(20)","street varchar(20)","number varchar(20)","city varchar(20)","zipCode char(4)","email varchar(20)","ssc char(10)","PRIMARY KEY (PersonId)"));
         runDDLStatement(StatementBuilder.createCreateStatement("Person",(ArrayList<String>) fields));
@@ -298,7 +306,7 @@ public class derbyDBConnectionHandler {
         return keys[0].intValue();
     }
 
-    public void openConnection(){
+    private void openConnection(){
         try
         {
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
@@ -328,7 +336,7 @@ public class derbyDBConnectionHandler {
         }
 
     }
-    public void commit() throws SQLException {
+    private void commit() throws SQLException {
         conn.commit();
     }
 
@@ -477,7 +485,7 @@ public class derbyDBConnectionHandler {
             e.printStackTrace();
         }
     }
-    private void save(List<Position> pos,List<Person> per,List<Job> jobs){
+    public void save(List<Position> pos,List<Person> per,List<Job> jobs){
         truncate();
         for (Person p:per){
             savePerson(p);
@@ -492,7 +500,6 @@ public class derbyDBConnectionHandler {
             saveRelation(p);
         }
     }
-
     private void truncate() {
         truncateTable("Person");
         truncateTable("Job");
@@ -500,7 +507,6 @@ public class derbyDBConnectionHandler {
         truncateTable("AttributeValue");
         truncateTable("Relation");
     }
-
     private void truncateTable(String table) {
         try {
             stmt = conn.createStatement();

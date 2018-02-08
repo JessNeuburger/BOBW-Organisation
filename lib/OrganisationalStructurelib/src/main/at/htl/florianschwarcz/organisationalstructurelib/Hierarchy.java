@@ -18,8 +18,6 @@ import java.util.Observer;
  * @author Florian Schwarcz
  */
 public class Hierarchy extends Observable{
-
-
     private static Hierarchy instance;
     public static Hierarchy getInstance(){
         if(instance == null){

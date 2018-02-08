@@ -20,7 +20,7 @@ Es gibt 2 Versionen der Ansicht des Organigramms. Im Organigramm-Tab sieht man e
 <img src="docs/img/PositionEdit.png" height="200px"/>
 <img src="docs/img/Jobs.png" height="200px"/>
 
-Der erste Screenshot zeigt ein Dialogfenster, welches erscheint, wenn man im Stellen-Tab auf eine Position doppelklickt. Darin könenn den Positionen andere Vorgesetzte zugeordnet werden, sowie der Job und die Position aus einer Liste der Verfügbaren ausgewählt werden.
+Der erste Screenshot zeigt ein Dialogfenster, welches erscheint, wenn man im Stellen-Tab auf eine Position doppelklickt. Darin können den Positionen andere Vorgesetzte zugeordnet werden, sowie der Job und die Position aus einer Liste der Verfügbaren ausgewählt werden.
 
 Im zweiten Screenshot sieht man den Jobs-Tab, in dem man eine Liste der ganzen Jobs hat. Unter der Liste kann man Jobs hinzufügen.
 

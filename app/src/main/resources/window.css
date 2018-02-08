@@ -1,0 +1,43 @@
+#addbutton{
+    background-color: #88c399;
+}
+
+#hrlist{
+    background-color: #102027;
+}
+
+#windowborderpane{
+    background-color: #37474f;
+}
+
+#windowmenubar{
+    background-color: #62727b;
+}
+
+#hrtab{
+    background-color: #88c399;
+}
+
+#orgtab{
+    background-color: #88c399;    
+}
+
+#stellentab{
+    background-color: #88c399;    
+}
+
+#stellentabpane{
+    background-color: #37474f;
+}
+
+#orgtabpane{
+    background-color: #37474f;
+}
+
+#hrtabpane{
+    background-color: #37474f;
+}
+
+.tab-header-area{
+    background-color: #62727b;    
+}

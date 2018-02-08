@@ -162,8 +162,11 @@ public class Position {
         return person.get();
     }
     public void setPerson(Person person) {
+        if(this.person.getValue()!=null)this.person.getValue().setPosition(null);
         this.person.set(person);
-        person.setPosition(this);
+        if(person!=null){
+            person.setPosition(this);
+        }
     }
 
     public ObjectProperty<Person> personProperty() {

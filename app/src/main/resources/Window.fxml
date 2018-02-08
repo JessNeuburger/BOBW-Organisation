@@ -9,24 +9,29 @@
 <?import javafx.scene.layout.BorderPane?>
 
 <?import bobworga.Controller.*?>
-<BorderPane fx:id="mainWindowPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bobworga.Controller.BoBwController">
+<BorderPane fx:id="mainWindowPane" id="windowborderpane" stylesheets="@window.css" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bobworga.Controller.BoBwController">
    <center>
       <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="TOP_LEFT">
         <tabs>
-          <Tab text="Organigramm">
+          <Tab text="Organigramm" id="orgtab">
             <content>
                 <OrganizationChart />
             </content>
           </Tab>
-          <Tab text="HR">
+          <Tab text="HR" id="hrtab">
             <content>
                 <HumanResources fx:id="humanResourcesTab"/>
             </content>
           </Tab>
-            <Tab text="Stellen">
+            <Tab text="Stellen" id="stellentab">
               <content>
                 <Positions />
               </content>
+            </Tab>
+            <Tab text="Jobs">
+                <content>
+                    <Jobs />
+                </content>
             </Tab>
         </tabs>
          <BorderPane.margin>
@@ -35,7 +40,7 @@
       </TabPane>
    </center>
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
+      <MenuBar id="windowmenubar" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -55,7 +60,4 @@
         </menus>
       </MenuBar>
    </top>
-    <left>
-        <HrList fx:id="hrList" />
-    </left>
 </BorderPane>

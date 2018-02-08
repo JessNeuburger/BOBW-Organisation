@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import at.htl.erikmayrhofer.organisationalstructurecomponents.job.JobEditor?>
+<fx:root type="BorderPane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+    <center>
+        <JobEditor fx:id="jobEditor"/>
+    </center>
+   <left>
+       <VBox BorderPane.alignment="CENTER">
+           <ListView fx:id="jobsListView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+           <Button fx:id="addJobButton" maxWidth="Infinity" mnemonicParsing="false" text="+" />
+       </VBox>
+   </left>
+</fx:root>

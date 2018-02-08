@@ -6,6 +6,8 @@ Ein Programm zum Editieren von Organigrammen von
  * Joules Munoz
  * Florian Schwarcz
 
+Download [here](https://github.com/JanNeuburger/BOBW-Organisation/releases/tag/0.0.1)
+
 ## Allgemeines
 In diesem Projekt arbeiteten einerseits das Frontend-Team (Mayrhofer, Neuburger, Munoz) und das Backend-Team (Wahl, Schwarcz). Das Frontend wurde mit JavaFX realisiert, während das Backend-Team mit Java, DerbyDB und JDBC arbeitete.
 

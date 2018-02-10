@@ -109,9 +109,15 @@ public class Repository {
 
     public void deletePosition(Position position){
         System.out.println("Removing Position");
+        if(position.getSuperordinate() == null) {
+            throw new RuntimeException("Cannot delete Root-Person");
+        }
         Position sup = position.getSuperordinate();
         sup.getSubordinates().remove(position);
         sup.getSubordinates().addAll(position.getSubordinates());
+        for (Position p : position.getSubordinates()){
+            p.setSuperordinate(sup);
+        }
         getHierarchy().invalidate();
     }
 
